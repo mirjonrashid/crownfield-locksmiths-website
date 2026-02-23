@@ -1,0 +1,5 @@
+# Cloudflare build artifacts that must not be deployed
+.vercel/output/static/_worker.js/nop-build-log.json
+.vercel/output/static/_worker.js/*.json
+**/nop-build-log.json
+**/*nop-build-log*.json
