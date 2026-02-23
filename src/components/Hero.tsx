@@ -4,6 +4,20 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Phone, MessageCircle, Shield, ArrowDown } from "lucide-react";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+function trackEvent(
+  name: string,
+  params?: Record<string, string | number | boolean | undefined>,
+) {
+  if (typeof window === "undefined") return;
+  window.gtag?.("event", name, params || {});
+}
+
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -39,8 +53,6 @@ export default function Hero() {
           className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold/8 rounded-full blur-3xl"
           style={{ animationDelay: "2s" }}
         />
-
-        {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(212,175,55,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
@@ -94,7 +106,16 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 mb-16"
           >
             {/* Primary - Call Button */}
-            <a href="tel:+447346010278" className="btn-telegram">
+            <a
+              href="tel:+447346010278"
+              className="btn-telegram"
+              onClick={() =>
+                trackEvent("phone_click", {
+                  location: "hero",
+                  label: "Call Now",
+                })
+              }
+            >
               <Phone className="w-6 h-6" />
               <span>Call Now</span>
             </a>
@@ -105,6 +126,12 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost"
+              onClick={() =>
+                trackEvent("whatsapp_click", {
+                  location: "hero",
+                  label: "WhatsApp",
+                })
+              }
             >
               <MessageCircle className="w-6 h-6" />
               <span>WhatsApp</span>

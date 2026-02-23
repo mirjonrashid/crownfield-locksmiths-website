@@ -12,6 +12,20 @@ import {
 import { Phone, Menu, X } from "lucide-react";
 import { companyInfo } from "@/data/content";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+function trackEvent(
+  name: string,
+  params?: Record<string, string | number | boolean | undefined>,
+) {
+  if (typeof window === "undefined") return;
+  window.gtag?.("event", name, params || {});
+}
+
 export default function Header() {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
@@ -32,7 +46,6 @@ export default function Header() {
     return scrollY.on("change", (v) => setScrolled(v > 50));
   }, [scrollY]);
 
-  // Lock body scroll when mobile menu open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
@@ -80,13 +93,14 @@ export default function Header() {
                   className="h-11 w-auto transition-all duration-300"
                   priority
                   onError={(e) => {
-                    // Fallback to text if image missing
                     const target = e.currentTarget as HTMLImageElement;
                     target.style.display = "none";
                     const parent = target.parentElement;
                     if (parent && !parent.querySelector(".logo-fallback")) {
                       const span = document.createElement("span");
-                      span.className = `logo-fallback heading font-black text-xl ${scrolled ? "text-primary" : "text-white"}`;
+                      span.className = `logo-fallback heading font-black text-xl ${
+                        scrolled ? "text-primary" : "text-white"
+                      }`;
                       span.textContent = "Crownfield";
                       parent.appendChild(span);
                     }
@@ -121,6 +135,12 @@ export default function Header() {
             {/* Desktop CTA */}
             <motion.a
               href={`tel:${companyInfo.phone}`}
+              onClick={() =>
+                trackEvent("phone_click", {
+                  location: "header_desktop_cta",
+                  label: "Call Now",
+                })
+              }
               initial={{ opacity: 0, x: 16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -158,7 +178,9 @@ export default function Header() {
                     transition={{ duration: 0.2 }}
                   >
                     <Menu
-                      className={`w-6 h-6 ${scrolled ? "text-gray-800" : "text-white"}`}
+                      className={`w-6 h-6 ${
+                        scrolled ? "text-gray-800" : "text-white"
+                      }`}
                     />
                   </motion.div>
                 )}
@@ -172,7 +194,6 @@ export default function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               key="backdrop"
               initial={{ opacity: 0 }}
@@ -183,7 +204,6 @@ export default function Header() {
               onClick={() => setMobileOpen(false)}
             />
 
-            {/* Drawer */}
             <motion.div
               key="drawer"
               initial={{ x: "100%" }}
@@ -215,6 +235,12 @@ export default function Header() {
 
                 <motion.a
                   href={`tel:${companyInfo.phone}`}
+                  onClick={() =>
+                    trackEvent("phone_click", {
+                      location: "header_mobile_drawer",
+                      label: "Call Now — 24/7",
+                    })
+                  }
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35 }}

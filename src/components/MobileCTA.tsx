@@ -5,6 +5,20 @@ import { Phone, MessageSquareText } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { companyInfo } from "@/data/content";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+function trackEvent(
+  name: string,
+  params?: Record<string, string | number | boolean | undefined>,
+) {
+  if (typeof window === "undefined") return;
+  window.gtag?.("event", name, params || {});
+}
+
 export default function MobileCTA() {
   const [visible, setVisible] = useState(false);
 
@@ -14,7 +28,6 @@ export default function MobileCTA() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Show bar once the services section starts entering viewport
         setVisible(entry.isIntersecting || entry.boundingClientRect.top < 0);
       },
       { threshold: 0, rootMargin: "0px 0px 0px 0px" },
@@ -39,6 +52,12 @@ export default function MobileCTA() {
               {/* Call Button */}
               <a
                 href={`tel:${companyInfo.phone}`}
+                onClick={() =>
+                  trackEvent("phone_click", {
+                    location: "mobile_cta",
+                    label: "Call 24/7",
+                  })
+                }
                 className="flex items-center justify-center gap-2 px-4 py-4 rounded-2xl font-black text-sm bg-gradient-to-r from-primary to-primary-dark text-white shadow-lg active:scale-95 transition-transform"
               >
                 <Phone className="w-5 h-5" />
@@ -48,6 +67,12 @@ export default function MobileCTA() {
               {/* Quote Button */}
               <a
                 href="#contact"
+                onClick={() =>
+                  trackEvent("quote_click", {
+                    location: "mobile_cta",
+                    label: "Get Quote",
+                  })
+                }
                 className="flex items-center justify-center gap-2 px-4 py-4 rounded-2xl font-bold text-sm bg-gradient-to-r from-gold to-gold-light text-primary shadow-lg active:scale-95 transition-transform"
               >
                 <MessageSquareText className="w-5 h-5" />

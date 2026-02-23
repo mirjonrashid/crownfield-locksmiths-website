@@ -13,6 +13,20 @@ import {
 } from "lucide-react";
 import { companyInfo } from "@/data/content";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+function trackEvent(
+  name: string,
+  params?: Record<string, string | number | boolean | undefined>,
+) {
+  if (typeof window === "undefined") return;
+  window.gtag?.("event", name, params || {});
+}
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -36,6 +50,12 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("idle");
+
+    // Track attempt (optional)
+    trackEvent("contact_form_attempt", {
+      service: formData.service || "unknown",
+    });
+
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -54,9 +74,18 @@ export default function ContactForm() {
           to_email: "info@crownfieldlocksmiths.co.uk",
         }),
       });
+
       const result = await response.json();
+
       if (result.success) {
         setSubmitStatus("success");
+
+        // ✅ Conversion event
+        trackEvent("contact_form_submit", {
+          service: formData.service || "unknown",
+          postcode: formData.postcode || "unknown",
+        });
+
         setTimeout(() => {
           setFormData({
             name: "",
@@ -67,9 +96,15 @@ export default function ContactForm() {
           });
           setSubmitStatus("idle");
         }, 3000);
-      } else throw new Error("Failed");
+      } else {
+        throw new Error("Failed");
+      }
     } catch {
       setSubmitStatus("error");
+
+      trackEvent("contact_form_error", {
+        service: formData.service || "unknown",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -83,6 +118,11 @@ export default function ContactForm() {
       value: companyInfo.phone,
       sub: "Available 24/7",
       dark: true,
+      onClick: () =>
+        trackEvent("phone_click", {
+          location: "contact_card",
+          label: "Emergency Line",
+        }),
     },
     {
       href: `mailto:${companyInfo.email}`,
@@ -91,6 +131,11 @@ export default function ContactForm() {
       value: companyInfo.email,
       sub: null,
       dark: false,
+      onClick: () =>
+        trackEvent("email_click", {
+          location: "contact_card",
+          label: "Email",
+        }),
     },
     {
       href: null,
@@ -99,6 +144,7 @@ export default function ContactForm() {
       value: companyInfo.address,
       sub: null,
       dark: false,
+      onClick: undefined,
     },
     {
       href: null,
@@ -107,6 +153,7 @@ export default function ContactForm() {
       value: companyInfo.hours,
       sub: "Every day of the year",
       dark: false,
+      onClick: undefined,
     },
   ];
 
@@ -173,23 +220,31 @@ export default function ContactForm() {
                     }`}
                   >
                     <Icon
-                      className={`w-5 h-5 ${card.dark ? "text-white" : "text-primary"}`}
+                      className={`w-5 h-5 ${
+                        card.dark ? "text-white" : "text-primary"
+                      }`}
                     />
                   </div>
                   <div className="min-w-0">
                     <p
-                      className={`text-xs font-semibold mb-0.5 ${card.dark ? "text-white/60" : "text-gray-400"}`}
+                      className={`text-xs font-semibold mb-0.5 ${
+                        card.dark ? "text-white/60" : "text-gray-400"
+                      }`}
                     >
                       {card.label}
                     </p>
                     <p
-                      className={`font-bold text-sm truncate ${card.dark ? "text-white" : "text-primary"}`}
+                      className={`font-bold text-sm truncate ${
+                        card.dark ? "text-white" : "text-primary"
+                      }`}
                     >
                       {card.value}
                     </p>
                     {card.sub && (
                       <p
-                        className={`text-xs mt-0.5 ${card.dark ? "text-white/50" : "text-gray-400"}`}
+                        className={`text-xs mt-0.5 ${
+                          card.dark ? "text-white/50" : "text-gray-400"
+                        }`}
                       >
                         {card.sub}
                       </p>
@@ -197,8 +252,13 @@ export default function ContactForm() {
                   </div>
                 </motion.div>
               );
+
               return card.href ? (
-                <a key={card.label} href={card.href}>
+                <a
+                  key={card.label}
+                  href={card.href}
+                  onClick={() => card.onClick?.()}
+                >
                   {Inner}
                 </a>
               ) : (
