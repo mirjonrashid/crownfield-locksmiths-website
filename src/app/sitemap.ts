@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import { MetadataRoute } from "next";
 
 const baseUrl = "https://www.crownfieldlocksmiths.co.uk";

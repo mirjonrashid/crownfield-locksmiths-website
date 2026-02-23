@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export", // 👈 this enables static export
+  trailingSlash: true, // helps with static hosting
   images: {
+    unoptimized: true, // required for static export
     remotePatterns: [
       {
         protocol: "https",
