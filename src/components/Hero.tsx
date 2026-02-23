@@ -4,18 +4,12 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Phone, MessageCircle, Shield, ArrowDown } from "lucide-react";
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
-
 function trackEvent(
   name: string,
-  params?: Record<string, string | number | boolean | undefined>,
+  params?: Record<string, string | number | boolean>,
 ) {
   if (typeof window === "undefined") return;
-  window.gtag?.("event", name, params || {});
+  window.gtag?.("event", name, params);
 }
 
 export default function Hero() {
@@ -34,7 +28,6 @@ export default function Hero() {
       ref={containerRef}
       className="relative min-h-screen overflow-hidden"
     >
-      {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -46,7 +39,6 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary-dark/92 to-primary-dark/95" />
       </div>
 
-      {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold/5 rounded-full blur-3xl animate-float" />
         <div
@@ -56,13 +48,11 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(212,175,55,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
-      {/* Content */}
       <motion.div
         style={{ y, opacity, scale }}
         className="relative z-10 container-max min-h-screen flex items-center py-32"
       >
         <div className="max-w-5xl">
-          {/* Trust Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -75,7 +65,6 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          {/* Main Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,7 +76,6 @@ export default function Hero() {
             <span className="text-gradient-gold">London</span>
           </motion.h1>
 
-          {/* Subheading */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -98,14 +86,12 @@ export default function Hero() {
             Upfront pricing — confirmed before work starts.
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 mb-16"
           >
-            {/* Primary - Call Button */}
             <a
               href="tel:+447346010278"
               className="btn-telegram"
@@ -120,7 +106,6 @@ export default function Hero() {
               <span>Call Now</span>
             </a>
 
-            {/* Secondary - WhatsApp */}
             <a
               href="https://wa.me/message/G3O7NWQOK6OJO1"
               target="_blank"
@@ -138,7 +123,6 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          {/* Trust Indicators */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -161,7 +145,6 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

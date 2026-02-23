@@ -12,18 +12,11 @@ import {
 import { Phone, Menu, X } from "lucide-react";
 import { companyInfo } from "@/data/content";
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
+type TrackParams = Record<string, string | number | boolean>;
 
-function trackEvent(
-  name: string,
-  params?: Record<string, string | number | boolean | undefined>,
-) {
+function trackEvent(name: string, params?: TrackParams) {
   if (typeof window === "undefined") return;
-  window.gtag?.("event", name, params || {});
+  window.gtag?.("event", name, params);
 }
 
 export default function Header() {
@@ -47,11 +40,7 @@ export default function Header() {
   }, [scrollY]);
 
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
@@ -125,6 +114,12 @@ export default function Header() {
                         ? "text-gray-600 hover:text-primary hover:bg-primary/5"
                         : "text-white/85 hover:text-white hover:bg-white/10"
                     }`}
+                    onClick={() =>
+                      trackEvent("nav_click", {
+                        location: "header_desktop_nav",
+                        label: link.label,
+                      })
+                    }
                   >
                     {link.label}
                   </Link>
@@ -178,9 +173,7 @@ export default function Header() {
                     transition={{ duration: 0.2 }}
                   >
                     <Menu
-                      className={`w-6 h-6 ${
-                        scrolled ? "text-gray-800" : "text-white"
-                      }`}
+                      className={`w-6 h-6 ${scrolled ? "text-gray-800" : "text-white"}`}
                     />
                   </motion.div>
                 )}
@@ -224,7 +217,13 @@ export default function Header() {
                     >
                       <Link
                         href={link.href}
-                        onClick={() => setMobileOpen(false)}
+                        onClick={() => {
+                          trackEvent("nav_click", {
+                            location: "header_mobile_nav",
+                            label: link.label,
+                          });
+                          setMobileOpen(false);
+                        }}
                         className="flex items-center px-4 py-3.5 rounded-2xl font-semibold text-gray-700 hover:bg-primary/5 hover:text-primary transition-all"
                       >
                         {link.label}
