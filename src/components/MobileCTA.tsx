@@ -5,25 +5,19 @@ import { Phone, MessageSquareText } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { companyInfo } from "@/data/content";
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
-
 function trackEvent(
   name: string,
-  params?: Record<string, string | number | boolean | undefined>,
+  params?: Record<string, string | number | boolean>,
 ) {
   if (typeof window === "undefined") return;
-  window.gtag?.("event", name, params || {});
+  window.gtag?.("event", name, params);
 }
 
 export default function MobileCTA() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const hero = document.getElementById("services"); // appears after hero ends
+    const hero = document.getElementById("services");
     if (!hero) return;
 
     const observer = new IntersectionObserver(
@@ -49,7 +43,6 @@ export default function MobileCTA() {
         >
           <div className="bg-white/98 backdrop-blur-xl border-t border-gray-100 px-4 py-3 shadow-[0_-8px_32px_rgba(0,59,122,0.12)]">
             <div className="grid grid-cols-2 gap-3">
-              {/* Call Button */}
               <a
                 href={`tel:${companyInfo.phone}`}
                 onClick={() =>
@@ -64,7 +57,6 @@ export default function MobileCTA() {
                 <span>Call 24/7</span>
               </a>
 
-              {/* Quote Button */}
               <a
                 href="#contact"
                 onClick={() =>
