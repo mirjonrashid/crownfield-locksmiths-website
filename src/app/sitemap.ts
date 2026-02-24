@@ -1,7 +1,8 @@
 export const dynamic = "force-static";
 import { MetadataRoute } from "next";
 
-const baseUrl = "https://www.crownfieldlocksmiths.co.uk";
+const baseUrl = "https://crownfieldlocksmiths.co.uk";
+const SITE_LASTMOD = "2026-02-24"; // update only when you actually change core site pages
 
 const boroughSlugs = [
   "westminster",
@@ -41,7 +42,7 @@ const boroughSlugs = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const boroughPages: MetadataRoute.Sitemap = boroughSlugs.map((slug) => ({
     url: `${baseUrl}/locksmiths/${slug}`,
-    lastModified: new Date("2026-02-01"),
+    lastModified: SITE_LASTMOD,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
@@ -49,87 +50,82 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: SITE_LASTMOD,
       changeFrequency: "weekly",
       priority: 1,
     },
-    // Locksmiths index
     {
       url: `${baseUrl}/locksmiths`,
-      lastModified: new Date("2026-02-01"),
+      lastModified: SITE_LASTMOD,
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    // Core Services
     {
       url: `${baseUrl}/services/emergency-locksmith-london`,
-      lastModified: new Date("2026-02-01"),
+      lastModified: SITE_LASTMOD,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/services/residential-locksmith-london`,
-      lastModified: new Date("2026-02-01"),
+      lastModified: SITE_LASTMOD,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/services/commercial-locksmith-london`,
-      lastModified: new Date("2026-02-01"),
+      lastModified: SITE_LASTMOD,
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    // Blog
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: SITE_LASTMOD,
       changeFrequency: "weekly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/blog/lock-types-explained-uk`,
-      lastModified: new Date("2026-01-10"),
+      lastModified: "2026-01-10",
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${baseUrl}/blog/best-front-door-lock-2026`,
-      lastModified: new Date("2026-01-15"),
+      lastModified: "2026-01-15",
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${baseUrl}/blog/insurance-lock-requirements`,
-      lastModified: new Date("2026-01-20"),
+      lastModified: "2026-01-20",
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${baseUrl}/blog/why-upvc-locks-fail-winter`,
-      lastModified: new Date("2026-01-25"),
+      lastModified: "2026-01-25",
       changeFrequency: "monthly",
       priority: 0.5,
     },
     {
       url: `${baseUrl}/blog/security-upgrades`,
-      lastModified: new Date("2026-01-30"),
+      lastModified: "2026-01-30",
       changeFrequency: "monthly",
       priority: 0.5,
     },
-    // Legal
     {
       url: `${baseUrl}/privacy`,
-      lastModified: new Date("2026-02-01"),
+      lastModified: SITE_LASTMOD,
       changeFrequency: "yearly",
       priority: 0.2,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: new Date("2026-02-01"),
+      lastModified: SITE_LASTMOD,
       changeFrequency: "yearly",
       priority: 0.2,
     },
-    // 32 London borough pages
     ...boroughPages,
   ];
 }
