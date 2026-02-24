@@ -85,9 +85,6 @@ export const metadata: Metadata = {
       "Locked out in London? 24/7 emergency locksmith across all 32 boroughs. Call now.",
     images: ["/og-image.jpg"],
   },
-  alternates: {
-    canonical: SITE_URL,
-  },
 
   // ✅ Only needed if you are using URL Prefix verification (meta tag method).
   // If you verify Search Console via DNS (Domain property), you can REMOVE this entirely.
