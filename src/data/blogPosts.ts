@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
     title: "Lock Types Explained: Mortice, Yale, Euro Cylinder & Multi-Point",
     excerpt:
       "Most homeowners don't know what lock they have — only that it locks. Here's a clear UK guide to every common lock type, where each is used, and which actually protects you.",
-    image: "/locktypes.png",
+    image: "/blog/locktypes.png",
     category: "Security Guide",
     date: "Feb 12, 2026",
     readTime: "7 min read",
@@ -146,7 +146,7 @@ People upgrade the lock but ignore door alignment, a weak frame, worn hinges, an
     title: "Which Lock Is Actually Right for Your Front Door in 2026?",
     excerpt:
       "Mortice, cylinder, multi-point or smart lock? A practical guide to choosing the right lock based on your door type, property, and insurance requirements.",
-    image: "/cl.jpg",
+    image: "/blog/best-front-door-lock-2026.png",
     category: "Security Guide",
     date: "Feb 10, 2026",
     readTime: "5 min read",
@@ -237,8 +237,7 @@ A proper security check covers door alignment, strike plates, frame strength, hi
     title: "The Lock Requirements Your Home Insurance Actually Expects",
     excerpt:
       "Most home insurance policies require specific locks. If yours don't comply, a claim can be refused — even after a break-in. Here's exactly what you need to know.",
-    image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop",
+    image: "/blog/insurance-requirements.png",
     category: "Insurance",
     date: "Jan 28, 2026",
     readTime: "5 min read",
@@ -298,8 +297,7 @@ Insurance-compliant locks are not just a formality — they're the condition und
     title: "Why Your UPVC Lock Stops Working in Winter",
     excerpt:
       "Cold weather causes specific mechanical failures in UPVC doors. Here's what actually happens, which quick fixes work, and when it's time to call someone.",
-    image:
-      "https://images.unsplash.com/photo-1516912481808-3406841bd33c?q=80&w=800&auto=format&fit=crop",
+    image: "/blog/upvc-winter.png",
     category: "Maintenance",
     date: "Feb 5, 2026",
     readTime: "4 min read",
@@ -374,8 +372,7 @@ Lubrication works only if done correctly:
     title: "5 Security Upgrades That Make Your Home a Less Attractive Target",
     excerpt:
       "Most break-ins are opportunistic decisions made in seconds. These upgrades change that calculation without turning your home into a fortress.",
-    image:
-      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?q=80&w=800&auto=format&fit=crop",
+    image: "/blog/small-security-upgrades.png",
     category: "Home Security",
     date: "Feb 8, 2026",
     readTime: "4 min read",
@@ -438,698 +435,524 @@ Security isn't about making your home impenetrable. It's about making it not wor
   },
   // NEW BLOG POSTS — append these to the blogPosts array in src/data/blogPosts.ts
   // Add these entries inside the blogPosts array, after the last existing post
-
-  // ── 6. Locked out guide ────────────────────────────────────────────────
+  // ── 6. Locked out guide (neutral + practical) ─────────────────────────────
   {
     id: "locked-out-london-what-to-do",
-    title: "Locked Out in London? Here's Exactly What to Do",
+    title: "Locked Out in London? A Calm Step-by-Step Plan",
     excerpt:
-      "Step-by-step guide for when you're locked out of your home in London — what to try yourself, what to avoid, and how to find a legitimate locksmith fast.",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop",
-    category: "Emergency Guide",
+      "Locked out happens fast. This guide shows what to check first, what to avoid, and how to get back in safely with minimal damage and cost surprises.",
+    image: "/blog/locked-out-london.png",
+    category: "Security Guide",
     date: "Feb 18, 2026",
     readTime: "5 min read",
     author: "Crownfield Locksmiths",
     content: `
-# Locked Out in London? Here's Exactly What to Do
+# Locked Out in London? A Calm Step-by-Step Plan
 
-It happens to everyone eventually. You're standing outside your front door and the keys are on the other side.
-
-Before you panic — or call the first number you find on Google — here's a calm, practical walkthrough.
+Being locked out is stressful — especially in the evening, with kids, or in bad weather. The goal is simple: **get back in safely without making the situation more expensive.**
 
 ---
 
-## Step 1: Don't Force It
+## Step 1) Pause for 30 seconds (seriously)
 
-The worst thing you can do is try to force the door, kick it in, or attempt to remove a hinge. This causes expensive damage that you'll pay for on top of the locksmith call. It also doesn't work on most modern doors.
+Most lockout damage happens in the first minute — when people rush, force the handle, or try random “hacks”.
 
----
-
-## Step 2: Check Every Entry Point (Calmly)
-
-Walk around the property first.
-
-- **Back door or side gate** — did you leave it unlocked?
-- **Ground floor windows** — are any on the latch rather than locked?
-- **Neighbour with a spare key** — did you leave one with someone?
-- **Landlord or letting agent** — if you're renting, they often hold spare keys
-
-This takes 5 minutes and costs nothing.
+If you keep the door and lock intact, solutions stay cheaper.
 
 ---
 
-## Step 3: Find a Legitimate Locksmith
+## Step 2) Check the obvious entry points
 
-This is where people get stung. London has a significant problem with rogue locksmiths who advertise cheap call-out fees, then massively inflate prices once they're at your door.
+Take 2–3 minutes and check calmly:
 
-**What to look for:**
-- A business name, not just a mobile number
-- A website with a real address and reviews
-- Willingness to quote a price over the phone
-- DBS-checked or verifiable credentials
+- Back door / side door  
+- Any accessible windows (only if safe and legal for your property)  
+- Do you have a spare key with a neighbour/friend?  
+- If you rent: landlord / letting agent emergency contact
 
-**Red flags:**
-- "From £39" ads with no fixed price
-- Cash only, no receipt
-- Pressure to decide immediately
-- No company name
-
-Get a price on the phone before anyone drives to you. A legitimate locksmith will quote upfront. If they won't, call someone else.
+This often solves it without tools.
 
 ---
 
-## Step 4: While You Wait
+## Step 3) Don’t force the lock or the door
 
-- Stay somewhere safe — a neighbour's doorstep, a nearby café
-- Call your insurer's emergency helpline (some policies cover locksmith costs)
-- If it's late at night, let someone know where you are
+Avoid:
+- kicking the door
+- forcing the handle up repeatedly
+- “credit card” tricks (often damage seals and frames)
+- putting anything inside the keyway (snaps keys and jams cylinders)
 
----
-
-## Step 5: After You're Back In
-
-- Consider whether you need a new cylinder if the lock was bypassed rather than opened
-- Get a spare key cut and leave it with a trusted person
-- Check your home contents insurance for locksmith coverage going forward
+If your door is UPVC/composite with multi-point locking, forcing can break the mechanism and turn a simple lockout into a repair.
 
 ---
 
-## How Much Should a Locksmith Cost in London?
+## Step 4) If you’re calling a locksmith, ask these 3 questions first
 
-A straightforward residential lockout during the day: **£80–£150** all-in.
+Before anyone travels, ask:
 
-Out of hours (evenings, weekends): slightly more, but a good locksmith will tell you the exact amount before arriving.
+1. **What is the total price range for this type of job?** (callout + labour, and parts if needed)  
+2. **Will you try non-destructive entry first?** (where appropriate)  
+3. **Do you provide a receipt/invoice?**
 
-Anyone quoting "from £39" and then billing £400+ is operating unethically. You have the right to ask for a full quote before work begins.
+A professional locksmith won’t be offended by these questions.
 
-**Need help now? Call: +447346010278 — we quote upfront, every time.**
+---
+
+## Step 5) While you wait
+
+- Stay somewhere safe (neighbour, lobby, café)  
+- If you have home insurance, check whether you have emergency cover  
+- If it’s late, let someone know where you are
+
+---
+
+## Step 6) After you’re back in
+
+Do a quick prevention checklist:
+
+- Cut a spare key and store it with someone you trust  
+- If your cylinder is stiff, consider servicing or replacing it  
+- If the door needs “lifting” to lock, the alignment likely needs adjustment (common on UPVC)
+
+**Need urgent help? Call: +447346010278**
     `,
     seo: {
-      metaTitle: "Locked Out in London? What to Do Step by Step",
+      metaTitle: "Locked Out in London? What to Do (Step-by-Step Guide)",
       metaDescription:
-        "Locked out of your London home? Here's exactly what to do — from quick self-checks to finding a legitimate locksmith without getting ripped off.",
+        "Locked out of your London home? A calm step-by-step plan: what to check first, what to avoid, and how to get back in with minimal damage.",
       keywords: [
         "locked out London",
-        "what to do locked out",
+        "lockout advice",
         "emergency locksmith London",
-        "locked out of house",
-        "locksmith rip off London",
-        "legitimate locksmith London",
+        "UPVC door locked out",
+        "what to do locked out",
       ],
     },
   },
 
-  // ── 7. Rogue locksmiths ────────────────────────────────────────────────
+  // ── 7. Choosing a locksmith (no “scammer” language, legally safer) ───────
   {
-    id: "how-to-spot-rogue-locksmith-london",
-    title: "How to Spot a Rogue Locksmith in London (And Avoid Getting Stung)",
+    id: "how-to-choose-a-locksmith-london",
+    title: "How to Choose a Locksmith in London (Without Stress)",
     excerpt:
-      "London has a serious problem with fake locksmiths who advertise cheap call-out fees and then charge hundreds once they're at your door. Here's how to protect yourself.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
-    category: "Consumer Advice",
+      "When you're locked out, you have to decide fast. Use this checklist to choose a reputable locksmith and avoid cost surprises.",
+    image: "/blog/choose-locksmith.png",
+    category: "Security Guide",
     date: "Feb 20, 2026",
     readTime: "6 min read",
     author: "Crownfield Locksmiths",
     content: `
-# How to Spot a Rogue Locksmith in London
+# How to Choose a Locksmith in London (Without Stress)
 
-The rogue locksmith problem in London is well-documented by Trading Standards and the Metropolitan Police. People who are stressed, cold, and locked out at midnight are vulnerable targets — and some operators exploit that deliberately.
+In a lockout, speed matters — but **clarity matters more**. A quick decision with no checks often leads to unexpected costs or unnecessary work.
 
-Here's how to protect yourself.
-
----
-
-## The Classic Scam
-
-1. You search "locksmith near me" in a panic
-2. You see an ad: "From £39, 24/7, Fast Response"
-3. You call, they confirm the price sounds right
-4. They arrive and say the job is "more complex" — the lock needs drilling, a new lock is needed, there's a callout surcharge
-5. By the time they're done, you've paid £300–£600 for a job worth £80–£120
-
-This pattern is repeated thousands of times across London every year.
+Here’s a simple checklist to help you choose a reputable locksmith.
 
 ---
 
-## Warning Signs Before They Arrive
+## 1) Look for a real business identity
 
-**Vague pricing:** "From £39" or "prices vary" with no commitment to a figure.
-
-**No business name:** Just a mobile number and a generic website with no address.
-
-**Suspiciously low advertised price:** Real locksmiths can't drive across London, open a lock, and make a living at £39. The low price is bait.
-
-**No reviews traceable to a real business:** Check Google Maps for the actual business, not just the website reviews section.
+Prefer locksmiths who clearly show:
+- Business name (consistent across website + Google listing)
+- A service area (London, specific areas)
+- Contact details that match the business name
+- Clear terms about pricing or how pricing is calculated
 
 ---
 
-## Warning Signs When They Arrive
+## 2) Ask for an upfront price range
 
-**No ID or company branding:** A legitimate locksmith typically has a branded van or work clothing.
+Lockouts vary by door and lock type, so exact pricing isn’t always possible before inspection — but a reputable locksmith should still give:
 
-**Immediate declaration that drilling is necessary:** Picking and decoding should always be attempted first. Drilling is often unnecessary and chosen because it justifies a new lock sale.
-
-**Verbal quotes only:** Insist on a written quote (a text message is sufficient) before they start.
-
-**Cash only:** Reputable businesses accept card payment.
+- an expected **range**
+- what factors increase cost (e.g., replacement parts, damaged locks, high-security cylinders)
+- whether the quote includes callout + labour
 
 ---
 
-## How to Protect Yourself
+## 3) Ask what method they’ll attempt first
 
-**Ask these questions before they arrive:**
-- What is the total price, including callout, labour, and any parts?
-- Do you accept card payment?
-- What is your company name and registration?
+A professional approach is usually:
+- assessment
+- non-destructive entry where appropriate
+- replacement only when necessary
 
-Any reputable locksmith will answer all three without hesitation.
-
-**Check their Google Business listing:** Search the company name on Google Maps. Look at the reviews, the listed address, and how long the business has been listed.
-
-**Contact your insurer first:** Many home insurance policies have emergency helplines with vetted tradespeople. This is the safest route if you have time.
+(There are cases where replacement is the correct option — the point is that it should be **explained**, not rushed.)
 
 ---
 
-## If You've Already Been Overcharged
+## 4) Prefer card payments + receipts
 
-- Request an itemised receipt (they're legally required to provide one)
-- Report to Citizens Advice or Trading Standards
-- Leave an honest review so others can make informed decisions
-- Consider a chargeback via your card provider if the price differed substantially from the quote
+A receipt/invoice is normal business practice and protects both sides.
 
 ---
 
-## The Simple Rule
+## 5) Do a quick review check the smart way
 
-**Get a full, all-inclusive price on the phone before anyone drives to you.**
+- Check Google reviews for **detail** (not only “great service”)
+- Look for consistency over time (not just a burst of new reviews)
+- Check if the business has photos, service listings, and a clear profile
 
-A legitimate locksmith will give you a firm number. If they won't, call someone who will.
+---
 
-**Our pricing is always quoted upfront. Call: +447346010278**
+## The bottom line
+
+In London, you can usually find a reputable locksmith quickly — even out of hours — if you use a simple checklist before confirming.
+
+**Need help now? Call: +447346010278**
     `,
     seo: {
-      metaTitle:
-        "How to Spot a Rogue Locksmith in London | Avoid Getting Scammed",
+      metaTitle: "How to Choose a Locksmith in London | Simple Checklist",
       metaDescription:
-        "Rogue locksmiths in London are a major problem. Learn the warning signs, the common scams, and exactly how to protect yourself when locked out.",
+        "A simple checklist to choose a reputable locksmith in London during a lockout — pricing clarity, entry methods, receipts, and fast checks.",
       keywords: [
-        "rogue locksmith London",
-        "locksmith scam London",
-        "how to find legitimate locksmith",
-        "locksmith overcharging",
-        "Trading Standards locksmith",
-        "locksmith red flags",
+        "choose a locksmith London",
+        "reputable locksmith London",
+        "locksmith checklist",
+        "lockout locksmith London",
+        "avoid cost surprises locksmith",
       ],
     },
   },
 
-  // ── 8. Snapped key ────────────────────────────────────────────────────
+  // ── 8. Snapped key (no fixed success rates, safer language) ──────────────
   {
     id: "key-snapped-in-lock",
-    title: "Key Snapped in the Lock? Here's What to Do (And What Not To)",
+    title: "Key Snapped in the Lock? What to Do Next",
     excerpt:
-      "A snapped key doesn't have to mean an expensive locksmith call. Here's a step-by-step guide to extracting a broken key — and when you actually do need professional help.",
-    image:
-      "https://images.unsplash.com/photo-1590402494682-cd3fb53b1f70?q=80&w=800&auto=format&fit=crop",
-    category: "DIY & Maintenance",
+      "A snapped key can sometimes be removed without drilling or replacing the lock. Here are safe steps to try, and clear signs it’s time to call a professional.",
+    image: "/blog/snapped-key.png",
+    category: "Maintenance",
     date: "Feb 22, 2026",
     readTime: "5 min read",
     author: "Crownfield Locksmiths",
     content: `
-# Key Snapped in the Lock? Here's What to Do
+# Key Snapped in the Lock? What to Do Next
 
-A snapped key is frustrating — but it's not always an emergency. In many cases you can extract the broken piece yourself with tools you probably have at home.
-
-Here's a practical guide.
+A snapped key is common with worn keys and stiff cylinders — especially in cold weather. The goal is to remove the broken piece **without pushing it deeper** or damaging the lock.
 
 ---
 
-## First: Assess the Situation
+## Step 1) Check how the key snapped
 
-Before touching anything, check:
+- If the key broke while turning, the lock may be under tension.
+- If it broke while inserting/removing, it’s usually easier to extract.
 
-1. **How far in is the broken piece?** If it's protruding even 2–3mm, extraction is much easier.
-2. **Is the lock still in the correct position?** If the key snapped while turning, the lock may be partially engaged. Try to return it to the starting position before anything else.
-3. **Do you have a spare key?** If extraction fails, you'll want it ready.
-
----
-
-## Tools That Work
-
-### Needle-nose pliers
-If the key is protruding at all, grip it firmly and pull straight out. Don't wiggle — this widens the keyway and makes it harder.
-
-### Two thin bobby pins / hair pins
-Insert both pins alongside the broken key, one on each side. Create outward pressure and pull the key fragment toward you.
-
-### Broken key extractor (from any hardware shop, ~£5)
-A hook-shaped tool designed for this exact job. Insert alongside the key, hook onto the serrations, pull firmly. This is the most reliable DIY method.
-
-### Super glue method (last resort, high risk)
-Apply a tiny amount to a matchstick or thin rod, hold it against the broken key end for 60 seconds, then pull. Risk: glue gets into the lock mechanism and makes things significantly worse. Only try this if nothing else has worked.
+If the lock is mid-turn, avoid forcing it further.
 
 ---
 
-## Things That Don't Work (And Cause Damage)
+## Step 2) If the key is sticking out at all
 
-- **Screwdrivers:** Too thick, they push the key fragment deeper
-- **Kitchen knives:** Same problem, plus you'll damage the keyway
-- **Drilling:** This destroys the lock and should only be done by a professional as a last resort
+Try **needle-nose pliers**:
+- grip firmly
+- pull straight out (don’t twist)
 
----
-
-## If the Key Is Fully Inside the Lock
-
-If the broken piece is completely flush or recessed inside the keyway, DIY extraction becomes very difficult. At this point, you have two realistic options:
-
-1. **Call a locksmith** — a professional extractor tool and a light source make this manageable in most cases without drilling
-2. **Cylinder replacement** — if extraction fails, the cylinder can be replaced for around £40–£80 including a new set of keys
+If you can see 2–3mm, extraction is often straightforward.
 
 ---
 
-## Preventing It Happening Again
+## Step 3) If it’s flush inside the keyway
 
-Keys snap when they're worn, previously bent, or when too much force is applied in a stiff lock.
+Safer options:
+- a **broken key extractor tool** (inexpensive, designed for this)
+- a thin **hooked pick** (carefully)
 
-- Replace keys showing cracks or bends immediately
-- Lubricate stiff cylinders with graphite powder
-- Don't force a lock that's resisting — investigate why it's stiff
+Avoid thick objects that will push the fragment deeper.
 
-**Need professional extraction? Call: +447346010278**
+---
+
+## Step 4) What not to do
+
+Avoid:
+- screwdrivers, knives, or anything bulky  
+- pouring oil inside the cylinder (can attract dirt and worsen sticking)  
+- drilling (last resort, and usually avoidable with proper tools)
+
+---
+
+## When you should call a locksmith
+
+- the fragment is fully recessed and won’t hook
+- the lock is stiff and the key keeps binding
+- the door is your only entry and you can’t risk damage
+- your cylinder is old and you want a clean replacement
+
+Sometimes the most cost-effective solution is simply replacing the cylinder with a new set of keys.
+
+**Need help? Call: +447346010278**
     `,
     seo: {
-      metaTitle: "Key Snapped in Lock? How to Extract It | Step-by-Step Guide",
+      metaTitle: "Key Snapped in Lock? Safe Steps & When to Call a Locksmith",
       metaDescription:
-        "Key snapped in your lock? Here's how to extract it yourself, which tools actually work, and when you need a locksmith.",
+        "Key snapped in your lock? Safe, practical steps to remove it without damage, plus clear signs it’s time for a locksmith or cylinder replacement.",
       keywords: [
         "key snapped in lock",
         "broken key extraction",
         "key stuck in lock",
         "remove broken key",
-        "locksmith broken key London",
+        "lock cylinder replacement",
       ],
     },
   },
 
-  // ── 9. Burglary prevention ────────────────────────────────────────────
+  // ── 9. Burglary deterrence (keep, but tighten claims) ────────────────────
   {
     id: "how-burglars-choose-targets-london",
-    title: "How Burglars Actually Choose Targets — And What Puts Them Off",
+    title: "What Makes a Home Look Like an Easy Target (And How to Fix It)",
     excerpt:
-      "Understanding the decision-making process behind opportunistic burglary is the most effective way to reduce your risk. The logic is surprisingly simple.",
-    image:
-      "https://images.unsplash.com/photo-1564419320461-6870880221ad?q=80&w=800&auto=format&fit=crop",
+      "Most break-ins are opportunistic. This guide explains what makes a property look easy — and the practical changes that make intruders move on.",
+    image: "/blog/burglary-deterrents.png",
     category: "Home Security",
     date: "Feb 16, 2026",
     readTime: "6 min read",
     author: "Crownfield Locksmiths",
     content: `
-# How Burglars Actually Choose Targets
+# What Makes a Home Look Like an Easy Target (And How to Fix It)
 
-Most residential burglaries in London are opportunistic. The decision to attempt entry at a particular property is usually made in under 60 seconds — and it's based almost entirely on perceived risk versus perceived reward.
+Many residential break-ins are opportunistic. Intruders often choose properties that look quick, quiet, and low-risk.
 
-Understanding this logic is the most useful security knowledge you can have.
-
----
-
-## The Burglar's Risk Assessment
-
-Before attempting entry, an opportunist checks:
-
-1. **How quickly can I get in?** Time at the door is exposure time.
-2. **Am I visible from the street or neighbouring properties?**
-3. **Is there any indication someone is home?**
-4. **Will I trigger an alarm or be recorded?**
-5. **Does this look like it's worth the risk?**
-
-If the answer to any of these is unfavourable, most opportunists move on.
+The good news: small changes can shift that “risk calculation”.
 
 ---
 
-## What Actually Puts Burglars Off
+## What can make a home look easier
 
-### Visibility
-Properties where someone can be seen attempting entry are far less targeted. Good lighting, clear sightlines from the street, and neighbours who are around all contribute to this.
+### 1) Weak or outdated cylinders on UPVC/composite doors
+If a euro cylinder is low-grade or sticks out significantly, it can be more vulnerable to attack.
 
-### Signs of occupancy
-An occupied-looking home is significantly less likely to be targeted. Simple things: a light on a timer, a radio audible from outside, a car in the drive.
+**Fix:** upgrade to a high-security, anti-snap cylinder and ensure it sits close to flush.
 
-### Visible security measures
-Alarm boxes, cameras, and even well-maintained hedges that prevent concealment all signal that this property requires more effort.
+### 2) Poor lighting and concealment
+Dark front paths, hidden side access, or tall hedges near entry points can reduce visibility.
 
-### Strong entry points
-A door that resists for more than 60 seconds significantly increases risk for the intruder. Anti-snap cylinders, reinforced frames, and quality multi-point locks all add resistance time.
+**Fix:** motion lighting + tidy sightlines around doors and windows.
 
----
+### 3) Windows that are easy to open
+Ground floor windows with simple latches may be easier to force.
 
-## What Burglars Look For
+**Fix:** key-operated window locks where appropriate, and ensure frames are in good condition.
 
-### Easy physical entry
-- Projecting euro cylinders (vulnerable to snapping)
-- Single-point locks on UPVC doors (one lift of the handle, nothing engages)
-- Old mortice locks without a proper strike plate
-- Ground floor windows on a latch
+### 4) Signs the home is unoccupied
+Uncollected post, no evening lights, or obvious patterns can signal absence.
 
-### Cover and concealment
-- Tall hedges right next to the front door
-- Side access that's hidden from the street
-- Poor or no lighting at night
-
-### Signals of absence
-- Mail accumulating
-- No lights for extended periods
-- Social media posts announcing holidays
+**Fix:** timer lights, neighbour collecting post, and basic routines when away.
 
 ---
 
-## The Most Effective Steps for London Properties
+## The simple principle
 
-**For UPVC doors:** anti-snap cylinder + check that multi-point engages properly when you lift the handle.
+You don’t need a “fortress”. You need:
+- stronger entry resistance
+- better visibility
+- fewer signals of absence
 
-**For wooden doors:** BS 3621 5-lever mortice + ensure the door frame is solid (test by pushing the door hard at the lock point).
-
-**For flats:** secondary locks on flat entrance doors where permitted, window locks on any accessible windows.
-
-**For all properties:** a light timer for evenings, motion-activated lighting for any dark access points, and a key with a trusted neighbour rather than under a mat.
-
----
-
-## A Note on Smart Technology
-
-Cameras and smart alarms are useful deterrents and evidence tools — but they don't physically prevent entry. The most cost-effective security is still strong physical locks, well fitted, in solid frames.
-
-**Want a quick security check? Call: +447346010278**
+**Want a quick security assessment? Call: +447346010278**
     `,
     seo: {
-      metaTitle: "How Burglars Choose Targets in London | Home Security Guide",
+      metaTitle: "How to Make Your Home Less of an Easy Target | London Guide",
       metaDescription:
-        "Most burglaries in London are opportunistic. Understanding how targets are chosen is the most effective way to reduce your risk.",
+        "A practical London home security guide: what makes a property look easy to target and the real-world upgrades that reduce risk.",
       keywords: [
-        "burglary prevention London",
-        "how burglars choose targets",
         "home security London",
-        "opportunistic burglary",
-        "reduce burglary risk",
-        "locksmith security advice London",
+        "burglary deterrents",
+        "anti snap cylinder",
+        "window locks",
+        "motion sensor lights",
       ],
     },
   },
 
-  // ── 10. New tenancy security ──────────────────────────────────────────
+  // ── 10. Move-in locks (neutral: no legal claims, practical) ──────────────
   {
     id: "moving-into-new-home-lock-security",
-    title: "Moving Into a New Home? The First Security Thing You Should Do",
+    title: "Moving Into a New Home? Do This on Day One",
     excerpt:
-      "When you move into a rented or purchased property, you don't know who has keys. Here's what to check, what to change, and what it actually costs.",
-    image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop",
-    category: "Moving Home",
+      "When you move in, you can’t know who still has copies of old keys. Here’s a practical checklist for day one security — especially in London rentals and purchases.",
+    image: "/blog/moving-home-lock-change.png",
+    category: "Home Security",
     date: "Feb 14, 2026",
     readTime: "4 min read",
     author: "Crownfield Locksmiths",
     content: `
-# Moving Into a New Home? Change the Locks First.
+# Moving Into a New Home? Do This on Day One
 
-When you pick up the keys to a new property, you're holding a copy of a key that may have been cut multiple times over the years.
+The most practical first security step when moving into a property is simple:
 
-Previous tenants, their family members, their ex-partners, contractors, neighbours who held a spare — you have no way of knowing how many people have working keys to your new front door.
+**make sure you control access.**
 
-This is the most overlooked security step in any move.
-
----
-
-## Who Might Have Keys to Your New Property?
-
-**If you're renting:**
-- Previous tenants and anyone they gave a key to
-- Contractors who were given access for maintenance
-- Letting agency staff (often holding master keys)
-
-**If you've bought:**
-- Previous owners
-- Previous owners' family members
-- Estate agents
-- Solicitors' runners (common during viewings)
-- Past contractors and trades
-
-In a typical property that's changed hands a few times, it's not unusual for 6–10 different key copies to exist.
+That usually means changing or rekeying locks — especially on the main entrance.
 
 ---
 
-## What You Should Do on Move-In Day
+## Why it matters
 
-### 1) Identify every lock that needs addressing
+You can’t easily know:
+- how many key copies exist
+- who received keys over time (family, contractors, cleaners, previous tenants)
+- whether keys were copied without record
 
-- **Front door** — always
-- **Back door** — always
-- **Any communal entrance locks** (check with management company first for flats)
-- **Garages or outbuildings** with separate locks
-
-### 2) Choose your approach
-
-**Option A — Cylinder replacement**
-For UPVC, composite, and modern wooden doors. The euro cylinder is removed and replaced. Takes about 10 minutes per door. Cost: £40–£80 per door including new keys, depending on cylinder grade.
-
-This is also an opportunity to upgrade to an anti-snap cylinder if one isn't already fitted.
-
-**Option B — Lock rekeying**
-For traditional mortice locks, a locksmith can rekey the existing lock so old keys no longer work. Cost is usually slightly less than a full replacement. Ask your locksmith if this is available for your lock type.
+This is about control and certainty.
 
 ---
 
-## What to Look for While You're at It
+## What to check on move-in day
 
-When the locksmith is there, ask them to check:
+### 1) Identify the lock type
+- Wooden door: usually mortice lock + nightlatch
+- UPVC/composite: euro cylinder + multi-point mechanism
 
-- **Door alignment** — does the multi-point engage cleanly?
-- **Frame condition** — is the frame solid at the lock point?
-- **Cylinder projection** — does the cylinder stick out more than 3mm?
-- **Window locks** — are ground floor windows on key-operated locks?
+### 2) Decide your approach
+- **Cylinder replacement** (common on UPVC/composite): fast, often the simplest option
+- **Rekey / lock replacement** (depends on lock type): your locksmith can advise based on the hardware
 
-A 15-minute check can identify issues you'd otherwise only discover during a break-in.
-
----
-
-## The Cost of Not Doing It
-
-A lock change for a standard two-door London flat costs around £120–£160 for both doors, including upgraded cylinders. That's the price of one dinner out.
-
-The alternative is hoping that nobody from the property's history has kept a key and decided to use it.
+### 3) Check the door alignment
+If you need to lift/push to lock, the multi-point may not be engaging cleanly. Fixing alignment reduces both lockouts and wear.
 
 ---
 
-## A Note for Renters
+## Good upgrades to do at the same time
 
-You are legally allowed to change locks in most rental properties, but you should notify your landlord and provide them with a key copy. Check your tenancy agreement, but most standard AST agreements permit this.
+- upgrade to an anti-snap cylinder on UPVC/composite doors
+- ensure strike plates/keeps are solid
+- confirm window locks on accessible windows
 
-**Moving in soon? We can change locks same day. Call: +447346010278**
+**Moving in soon? Call: +447346010278**
     `,
     seo: {
-      metaTitle:
-        "Moving Into a New Home? Change the Locks First | London Guide",
+      metaTitle: "Moving Into a New Home? Day One Security Checklist (London)",
       metaDescription:
-        "When you move into a new property, unknown key holders are a real security risk. Here's what to change, how much it costs, and what to check.",
+        "A practical day-one checklist for new homeowners and renters: lock types, cylinder replacement, alignment checks, and simple upgrades.",
       keywords: [
         "change locks moving house",
         "new home security",
         "lock change London",
-        "moving into rented property locks",
-        "cylinder replacement moving home",
-        "rekey locks London",
+        "cylinder replacement",
+        "UPVC lock change",
       ],
     },
   },
 
-  // ── 11. Composite vs UPVC doors ───────────────────────────────────────
+  // ── 11. Composite vs UPVC (keep, but make images local + tighter) ─────────
   {
     id: "composite-vs-upvc-doors-security",
-    title: "Composite vs UPVC Doors: Which Is More Secure?",
+    title: "Composite vs UPVC Doors: What Actually Matters for Security",
     excerpt:
-      "If you're replacing a front door, security should be a major factor. Here's an honest comparison of UPVC and composite doors — and what actually matters most.",
-    image:
-      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?q=80&w=800&auto=format&fit=crop",
+      "Choosing a front door? Material matters, but not as much as the lock spec, fitting, and frame quality. Here’s a straight comparison for UK homes.",
+    image: "/blog/composite-vs-upvc.png",
     category: "Security Guide",
     date: "Feb 10, 2026",
     readTime: "5 min read",
     author: "Crownfield Locksmiths",
     content: `
-# Composite vs UPVC Doors: Which Is More Secure?
+# Composite vs UPVC Doors: What Actually Matters for Security
 
-If you're replacing a front door and security matters to you — which it should — this comparison will help you make the right decision.
-
----
-
-## What's the Actual Difference?
-
-**UPVC doors** have a hollow PVC profile. The multi-point locking mechanism is strong, but the door material itself offers less resistance to physical force than a composite.
-
-**Composite doors** are made from multiple materials — typically a solid timber or foam core wrapped in a fibreglass or GRP skin. They're significantly heavier and more resistant to brute-force entry.
+Door material is important — but most real-world security outcomes come down to:
+- the lock cylinder quality
+- correct installation
+- frame strength
+- door alignment (especially multi-point systems)
 
 ---
 
-## How Burglars Actually Attack Doors
+## Composite doors (general strengths)
+- usually heavier and more rigid
+- better resistance to general impact
+- often more stable over time
 
-Before comparing materials, it's worth knowing how doors are actually attacked:
-
-1. **Lock snapping** — attacking the euro cylinder (most common on UPVC)
-2. **Forcing the frame** — kicking or shouldering until the frame gives way
-3. **Manipulating the multi-point** — finding a weakness in the locking mechanism
-4. **Hinge attack** — removing or damaging hinges on poorly fitted doors
-
-Both door types are vulnerable to all of these if poorly specified or badly fitted. The door material is only one variable.
-
----
-
-## Security Comparison
-
-### Resistance to physical force
-Composite wins clearly. The solid core makes kick-in significantly harder. A quality composite door can absorb far more force before the frame gives way.
-
-### Lock quality (both door types)
-Both use euro cylinder locks and multi-point mechanisms. Security depends almost entirely on the cylinder grade, not the door material. Both require an anti-snap, anti-drill cylinder.
-
-### PAS 24 and Secured by Design ratings
-Both door types can be rated to PAS 24 (enhanced security performance). When buying, look for this rating — it means the door has been tested against common attack methods.
-
-### Weathering and warping
-UPVC is more susceptible to thermal expansion, which can cause misalignment over time — particularly affecting how cleanly the multi-point engages. Composites are more dimensionally stable.
+## UPVC doors (general strengths)
+- widely used and cost-effective
+- strong when the multi-point locks engage correctly
+- easy to upgrade via cylinder replacement
 
 ---
 
-## What Actually Matters Most
+## The key point: the cylinder matters most
 
-1. **The cylinder** — Both door types need an anti-snap TS007 3-star cylinder. This is the most common upgrade we recommend regardless of door type.
+For UPVC/composite doors, the euro cylinder is a common upgrade point.
 
-2. **Frame and installation quality** — A strong door in a weak or poorly fitted frame is not secure. The keep plate, hinge positions, and frame anchoring all matter.
-
-3. **Door alignment** — Multi-point locks only engage fully when the door sits correctly in the frame. Poor alignment is the most common cause of lockouts and security weaknesses.
+A higher-security cylinder (anti-snap, anti-drill, anti-pick) combined with good fitting is often a bigger gain than changing door material alone.
 
 ---
 
-## Our Honest Take
+## What to look for when buying
+- strong frame + solid keeps/strike plates
+- correct alignment so the mechanism engages cleanly
+- reputable installation
+- cylinder that sits close to flush (minimal projection)
 
-A well-specified UPVC door with a quality cylinder, properly fitted in a solid frame is more secure than a composite door with a budget cylinder and a misaligned frame.
-
-Get the specification right — door material is a secondary consideration.
-
-**Questions about your door? Call: +447346010278**
+**Questions about your current door setup? Call: +447346010278**
     `,
     seo: {
-      metaTitle:
-        "Composite vs UPVC Doors: Which Is More Secure? | London Guide",
+      metaTitle: "Composite vs UPVC Door Security | What Matters Most (UK)",
       metaDescription:
-        "Replacing your front door? Here's an honest comparison of composite and UPVC security — and what actually matters most for burglary resistance.",
+        "Composite vs UPVC doors: the honest security comparison. Learn what matters most—lock cylinder grade, fitting quality, frame strength, and alignment.",
       keywords: [
-        "composite vs UPVC door security",
-        "most secure front door UK",
-        "composite door security",
+        "composite vs UPVC security",
+        "front door security UK",
+        "anti snap cylinder",
         "UPVC door security",
-        "PAS 24 door",
-        "front door security London",
+        "composite door security",
       ],
     },
   },
 
-  // ── 12. Smart locks honest review ─────────────────────────────────────
+  // ── 12. Smart locks (neutral, no marketing claims, no insurer promises) ───
   {
     id: "smart-locks-honest-review-london",
-    title: "Smart Locks: Are They Actually Worth It for London Homes?",
+    title: "Smart Locks in London: Convenience vs Practical Security",
     excerpt:
-      "Smart locks are increasingly popular — but are they more secure than a traditional lock? An honest assessment of the pros, cons, and real-world considerations for London properties.",
-    image:
-      "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800&auto=format&fit=crop",
-    category: "Technology",
+      "Smart locks can be brilliant for access control, but they don’t automatically make a door more secure. Here’s a balanced, real-world guide for London homes.",
+    image: "/blog/smart-locks-london.png",
+    category: "Security Guide",
     date: "Feb 24, 2026",
     readTime: "6 min read",
     author: "Crownfield Locksmiths",
     content: `
-# Smart Locks: Are They Actually Worth It for London Homes?
+# Smart Locks in London: Convenience vs Practical Security
 
-Smart locks are increasingly popular — particularly in new builds and short-let properties. But do they make your home more secure? The honest answer is more nuanced than the marketing suggests.
+Smart locks are mainly about **access control** — who can enter, when, and how easily you manage it.
 
----
-
-## What Smart Locks Actually Are
-
-Most "smart locks" are a keypad or app-controlled module that replaces the cylinder or thumb-turn on an existing lock. The underlying multi-point mechanism or mortice lock is still doing the security work.
-
-In other words: a smart lock is often a different way of authenticating — not a fundamentally different locking mechanism.
+Security depends on the whole system: door, frame, lock type, and installation.
 
 ---
 
-## The Genuine Advantages
-
-### No physical key to lose
-The most practical benefit. No key cutting for new tenants, no worrying about lost keys, temporary codes for tradespeople.
-
-### Remote access control
-Lock and unlock remotely, grant access without being present, check if the door is locked from your phone. Genuinely useful for landlords and people who travel frequently.
-
-### Access logs
-See who entered and when. Useful for rental properties and shared accommodation.
-
-### Keypad entry
-Good for people who regularly lose keys or properties with multiple users.
+## Where smart locks make sense
+- households with multiple users (family, cleaners, carers)
+- short-lets and rentals (temporary access codes, easy access control)
+- people who frequently lose keys
+- properties where you want entry logs
 
 ---
 
-## The Genuine Limitations
-
-### Battery dependency
-Smart locks run on batteries. When the battery dies — often at an inconvenient moment — you need a backup access method. Most provide a physical key override. Don't ignore it.
-
-### Insurance considerations
-Many home insurance policies don't explicitly recognise smart locks. Check with your insurer before replacing a BS 3621-rated mortice or TS007-rated cylinder with a smart alternative.
-
-### Installation matters enormously
-A poorly fitted smart lock can be physically attacked more easily than the traditional lock it replaced. The quality of installation, the underlying door and frame, and the specific product spec all matter.
-
-### Network and software vulnerabilities
-App-connected locks depend on the manufacturer's cloud infrastructure. If the service is discontinued, changes its pricing model, or has a security vulnerability, your lock is affected. Choose established manufacturers with long track records.
-
-### They don't fix underlying weaknesses
-If your door frame is weak, your cylinder projects too far, or the multi-point is misaligned, adding a smart lock doesn't address any of that.
+## Real-world limitations to consider
+- batteries (you need a backup plan)
+- compatibility with your current lock/door
+- installation quality matters a lot
+- your insurance may have specific requirements (check your policy wording)
 
 ---
 
-## When Smart Locks Make Sense
+## A practical recommendation
+If you want smart convenience, keep the underlying mechanical security strong:
+- quality cylinder where applicable
+- correct alignment for multi-point locks
+- solid frame and keeps
 
-- **Rental or Airbnb properties** — access control and logs have clear value
-- **Properties with multiple regular users** — family members, carers, cleaners
-- **People who frequently lose keys**
-- **New builds with smart home integration already in place**
+Smart locks can be a great **layer** — but they shouldn’t be used to compensate for a weak door setup.
 
----
-
-## When Traditional Locks Are Better
-
-- **Primary security focus** — a quality traditional lock is mechanically more predictable
-- **Properties with insurance requirements** — where specific standards are required
-- **Older properties with non-standard doors** — smart lock fitment may not be appropriate
-- **Anyone who wants simplicity** — no apps, no charging, no firmware updates
-
----
-
-## Our Recommendation
-
-If you want smart lock convenience, install it as a second layer alongside your existing quality lock — not instead of it. And always ensure the underlying mechanical lock is properly specified and correctly fitted.
-
-**Considering a smart lock installation? Call us first: +447346010278**
+**Want advice for your specific door type? Call: +447346010278**
     `,
     seo: {
-      metaTitle:
-        "Smart Locks: Are They Worth It for London Homes? Honest Review",
+      metaTitle: "Smart Locks in London | Practical Pros, Cons & What to Check",
       metaDescription:
-        "Smart locks are popular but are they actually more secure? An honest assessment for London homeowners and landlords — pros, cons, and what to consider.",
+        "Smart locks are convenient, but security depends on the whole door system. A balanced guide for London homes: benefits, limitations, and what to check.",
       keywords: [
         "smart locks London",
-        "smart lock review UK",
-        "are smart locks secure",
-        "smart lock vs traditional lock",
+        "smart lock UK",
         "keypad lock London",
-        "smart lock installation London",
+        "smart lock installation",
+        "smart lock vs traditional lock",
       ],
     },
   },

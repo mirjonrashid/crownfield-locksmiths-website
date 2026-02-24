@@ -11,6 +11,7 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import MobileCTA from "@/components/MobileCTA";
 import SchemaMarkup from "@/components/SchemaMarkup";
+import TrustedBrands from "@/components/TrustedBrands";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <Blog />
       <FAQ />
       <ContactForm />
+      <TrustedBrands />
       <Footer />
       <MobileCTA />
     </main>

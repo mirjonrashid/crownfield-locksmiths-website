@@ -6,28 +6,28 @@ import { Star, Quote, MapPin } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
-    location: "Kensington",
-    initials: "SM",
+    name: "Tom Ashworth",
+    location: "Canada Water, SE16",
+    initials: "TA",
     rating: 5,
-    text: "Arrived quickly and got me back in without damage. Clear pricing, calm and professional throughout. Highly recommend.",
+    text: "Locked myself out on a Sunday evening, keys still inside. Called Crownfield and they were at my door within 25 minutes. Tried picking it first, got it open without any damage. Quoted me £110 on the phone and that's exactly what I paid. Straightforward and honest — exactly what you want when you're standing on your doorstep in the rain.",
     service: "Emergency Lockout",
   },
   {
-    name: "James Patterson",
-    location: "Canary Wharf",
-    initials: "JP",
+    name: "Priya Nair",
+    location: "Kensington, W8",
+    initials: "PN",
     rating: 5,
-    text: "We needed urgent lock changes for our office. Fast, clean work and very reliable communication. Will use again.",
-    service: "Commercial Locksmith",
+    text: "My front door lock had been getting stiffer for weeks and finally packed in completely. Crownfield came the same afternoon, replaced the euro cylinder with an anti-snap one and showed me why the old one was a security risk. Fair price and they didn't try to sell me anything unnecessary. Already passed their number to two neighbours.",
+    service: "Residential Locksmith",
   },
   {
-    name: "Emma Thompson",
-    location: "Richmond",
-    initials: "ET",
+    name: "Aleksander Nowak",
+    location: "Mayfair, W1K",
+    initials: "AN",
     rating: 5,
-    text: "Had my UPVC lock mechanism replaced. Quick response, explained the issue clearly, and finished the job properly. Good experience overall.",
-    service: "Residential Locksmith",
+    text: "Very professional service. I manage several properties and needed urgent lock changes after a tenancy ended badly. They handled three doors in one visit, all Yale and mortice, checked alignment on each one before leaving. Reliable enough that I now use them for all my properties.",
+    service: "Lock Replacement",
   },
 ];
 

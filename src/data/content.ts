@@ -94,27 +94,6 @@ export const stats = [
   { number: "100", label: "% Satisfaction" },
 ];
 
-export const testimonials = [
-  {
-    name: "Sarah Mitchell",
-    location: "Kensington, London",
-    rating: 5,
-    text: "Arrived quickly and got me back in without damage. Clear pricing, calm and professional throughout. Highly recommend.",
-  },
-  {
-    name: "James Patterson",
-    location: "Canary Wharf",
-    rating: 5,
-    text: "We needed urgent lock changes for our office. Fast, clean work and very reliable communication. Will use again.",
-  },
-  {
-    name: "Emma Thompson",
-    location: "Richmond",
-    rating: 5,
-    text: "Had my UPVC lock mechanism replaced. Quick response, explained the issue clearly, and finished the job properly. Good experience overall.",
-  },
-];
-
 export const faqs = [
   {
     question: "Do you provide upfront quotes?",
