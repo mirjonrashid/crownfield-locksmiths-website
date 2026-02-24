@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+// Anton font loaded via <link> in layout.tsx — add if not already present:
+// <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
 import {
   motion,
   useInView,
@@ -124,20 +126,20 @@ export default function Pricing() {
           <motion.div
             variants={item}
             className="relative rounded-3xl overflow-hidden bg-primary group"
-            style={{ minHeight: 440 }}
           >
             <div className="absolute inset-0 bg-[linear-gradient(rgba(212,175,55,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.035)_1px,transparent_1px)] bg-[size:40px_40px]" />
             <div className="absolute bottom-0 right-0 w-80 h-80 bg-gold/10 rounded-full blur-[80px] pointer-events-none transition-all duration-700 group-hover:bg-gold/16" />
 
-            <div className="relative z-10 p-8 md:p-12 h-full flex flex-col">
+            <div className="relative z-10 p-7 md:p-10 flex flex-col gap-6">
+              {/* Label row */}
               <motion.div
                 initial={{ opacity: 0, x: -16 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex items-center gap-3 mb-auto"
+                className="flex items-center gap-3"
               >
-                <div className="w-11 h-11 rounded-2xl bg-white/8 border border-white/10 flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-gold" />
+                <div className="w-10 h-10 rounded-xl bg-white/8 border border-white/10 flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-4 h-4 text-gold" />
                 </div>
                 <div>
                   <p className="text-white/40 text-[10px] uppercase tracking-[0.2em]">
@@ -149,20 +151,22 @@ export default function Pricing() {
                 </div>
               </motion.div>
 
-              <div className="py-8 md:py-10">
+              {/* Price */}
+              <div>
                 <motion.div
                   initial={{ scaleX: 0 }}
                   animate={isInView ? { scaleX: 1 } : {}}
                   transition={{ duration: 0.9, delay: 0.5, ease: "easeOut" }}
                   style={{ originX: 0 }}
-                  className="h-px w-20 mb-6 bg-gradient-to-r from-gold to-transparent"
+                  className="h-px w-16 mb-4 bg-gradient-to-r from-gold to-transparent"
                 />
-                <div className="flex items-start">
+                <div className="flex items-start gap-1">
                   <motion.span
                     initial={{ opacity: 0, y: 16 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.38 }}
-                    className="text-white/35 font-black text-3xl mt-3 mr-1"
+                    className="text-white/40 font-black text-2xl md:text-3xl mt-2"
+                    style={{ fontFamily: "inherit" }}
                   >
                     £
                   </motion.span>
@@ -172,9 +176,10 @@ export default function Pricing() {
                     transition={{ duration: 0.7, delay: 0.42, ease: "easeOut" }}
                     className="text-gradient-gold leading-none font-black"
                     style={{
-                      fontSize: "clamp(6rem, 14vw, 9rem)",
-                      fontFamily: "'Playfair Display', serif",
+                      fontSize: "clamp(5rem, 18vw, 7.5rem)",
+                      fontFamily: "'Anton', 'Impact', sans-serif",
                       fontWeight: 900,
+                      letterSpacing: "-0.02em",
                     }}
                   >
                     <CountUp to={99} duration={0.8} />
@@ -185,10 +190,32 @@ export default function Pricing() {
                   animate={isInView ? { scaleX: 1 } : {}}
                   transition={{ duration: 0.8, delay: 0.65, ease: "easeOut" }}
                   style={{ originX: 0 }}
-                  className="h-[2px] w-16 mt-5 rounded-full bg-gradient-to-r from-gold via-gold-light to-transparent"
+                  className="h-[2px] w-12 mt-3 rounded-full bg-gradient-to-r from-gold via-gold-light to-transparent"
                 />
               </div>
 
+              {/* Trust pills */}
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.55 }}
+                className="flex flex-wrap gap-2"
+              >
+                {[
+                  "Non-destructive entry",
+                  "Parts quoted separately",
+                  "Cash & card accepted",
+                ].map((t) => (
+                  <span
+                    key={t}
+                    className="text-[11px] font-semibold text-white/50 bg-white/6 border border-white/8 px-3 py-1 rounded-full"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </motion.div>
+
+              {/* CTA */}
               <motion.a
                 href="tel:+447346010278"
                 initial={{ opacity: 0, y: 12 }}

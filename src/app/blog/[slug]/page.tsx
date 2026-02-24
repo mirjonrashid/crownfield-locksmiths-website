@@ -12,7 +12,6 @@ import { Calendar, Clock, ArrowLeft, Phone } from "lucide-react";
 import { getBlogPost, getAllBlogPosts } from "@/data/blogPosts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BlogHeaderFix from "@/components/BlogHeaderFix";
 import ReactMarkdown from "react-markdown";
 
 interface Props {
@@ -63,8 +62,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
-      <BlogHeaderFix />
-      <Header />
+      <Header forceDark />
       <main className="min-h-screen pt-20">
         {/* Article Header */}
         <article>

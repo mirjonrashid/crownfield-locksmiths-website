@@ -19,10 +19,13 @@ function trackEvent(name: string, params?: TrackParams) {
   window.gtag?.("event", name, params);
 }
 
-export default function Header() {
+export default function Header({ forceDark = false }: { forceDark?: boolean }) {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // When drawer is open OR forceDark, force "scrolled" visual state
+  const solidHeader = forceDark || scrolled || mobileOpen;
 
   const headerBg = useTransform(
     scrollY,
@@ -48,19 +51,30 @@ export default function Header() {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "#services", label: "Services" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#areas", label: "Coverage" },
-    { href: "#testimonials", label: "Reviews" },
-    { href: "#blog", label: "Blog" },
-    { href: "#contact", label: "Contact" },
+    { href: "/#services", label: "Services" },
+    { href: "/#pricing", label: "Pricing" },
+    { href: "/#areas", label: "Coverage" },
+    { href: "/#testimonials", label: "Reviews" },
+    { href: "/blog", label: "Blog" },
+    { href: "/about", label: "About" },
+    { href: "/#contact", label: "Contact" },
   ];
 
   return (
     <>
       <motion.header
-        style={{ backgroundColor: headerBg, boxShadow: headerShadow }}
-        className="fixed top-0 left-0 right-0 z-50"
+        style={
+          forceDark || mobileOpen
+            ? {
+                backgroundColor: "rgba(255,255,255,0.98)",
+                boxShadow: "0px 4px 24px rgba(0,59,122,0.1)",
+              }
+            : {
+                backgroundColor: headerBg,
+                boxShadow: headerShadow,
+              }
+        }
+        className="fixed top-0 left-0 right-0 z-[60]"
       >
         <div className="container-max">
           <div className="flex items-center justify-between h-20">
@@ -72,7 +86,7 @@ export default function Header() {
               >
                 <Image
                   src={
-                    scrolled || mobileOpen
+                    solidHeader
                       ? "/images/logo_dark.png"
                       : "/images/logo_light.png"
                   }
@@ -82,13 +96,14 @@ export default function Header() {
                   className="h-11 w-auto transition-all duration-300"
                   priority
                   onError={(e) => {
-                    const target = e.currentTarget as HTMLImageElement;
+                    const target =
+                      e.currentTarget as unknown as HTMLImageElement;
                     target.style.display = "none";
                     const parent = target.parentElement;
                     if (parent && !parent.querySelector(".logo-fallback")) {
                       const span = document.createElement("span");
                       span.className = `logo-fallback heading font-black text-xl ${
-                        scrolled ? "text-primary" : "text-white"
+                        solidHeader ? "text-primary" : "text-white"
                       }`;
                       span.textContent = "Crownfield";
                       parent.appendChild(span);
@@ -110,7 +125,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     className={`px-4 py-2 rounded-xl font-semibold text-sm transition-all duration-200 ${
-                      scrolled
+                      solidHeader
                         ? "text-gray-600 hover:text-primary hover:bg-primary/5"
                         : "text-white/85 hover:text-white hover:bg-white/10"
                     }`}
@@ -173,7 +188,7 @@ export default function Header() {
                     transition={{ duration: 0.2 }}
                   >
                     <Menu
-                      className={`w-6 h-6 ${scrolled ? "text-gray-800" : "text-white"}`}
+                      className={`w-6 h-6 ${solidHeader ? "text-gray-800" : "text-white"}`}
                     />
                   </motion.div>
                 )}
@@ -193,7 +208,7 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[54] lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
 
@@ -203,51 +218,68 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 300 }}
-              className="fixed right-0 top-0 bottom-0 w-full sm:w-80 bg-white z-50 lg:hidden flex flex-col"
+              className="fixed right-0 top-0 bottom-0 w-full sm:w-80 bg-white z-[55] lg:hidden flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="pt-24 px-6 flex-1 overflow-y-auto">
-                <nav className="flex flex-col gap-1">
-                  {navLinks.map((link, i) => (
-                    <motion.div
-                      key={link.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.05 }}
-                    >
-                      <Link
-                        href={link.href}
-                        onClick={() => {
-                          trackEvent("nav_click", {
-                            location: "header_mobile_nav",
-                            label: link.label,
-                          });
-                          setMobileOpen(false);
-                        }}
-                        className="flex items-center px-4 py-3.5 rounded-2xl font-semibold text-gray-700 hover:bg-primary/5 hover:text-primary transition-all"
-                      >
-                        {link.label}
-                      </Link>
-                    </motion.div>
-                  ))}
-                </nav>
+              <div className="flex-1 overflow-y-auto">
+                <div className="px-6 pt-6 pb-3 border-b border-gray-100">
+                  <Link href="/" onClick={() => setMobileOpen(false)}>
+                    <Image
+                      src="/images/logo_dark.png"
+                      alt="Crownfield Locksmiths"
+                      width={160}
+                      height={48}
+                      className="h-9 w-auto"
+                      priority
+                    />
+                  </Link>
+                </div>
 
-                <motion.a
-                  href={`tel:${companyInfo.phone}`}
-                  onClick={() =>
-                    trackEvent("phone_click", {
-                      location: "header_mobile_drawer",
-                      label: "Call Now — 24/7",
-                    })
-                  }
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.35 }}
-                  className="flex items-center justify-center gap-2.5 mt-6 w-full px-6 py-4 rounded-2xl font-black bg-gradient-to-r from-gold to-gold-light text-primary shadow-lg"
-                >
-                  <Phone className="w-5 h-5" />
-                  Call Now — 24/7
-                </motion.a>
+                <div className="px-6 pt-6">
+                  <nav className="flex flex-col gap-1">
+                    {navLinks.map((link, i) => (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.05 }}
+                      >
+                        <Link
+                          href={link.href}
+                          onClick={() => {
+                            trackEvent("nav_click", {
+                              location: "header_mobile_nav",
+                              label: link.label,
+                            });
+                            setMobileOpen(false);
+                          }}
+                          className="flex items-center px-4 py-3.5 rounded-2xl font-semibold text-gray-700 hover:bg-primary/5 hover:text-primary transition-all"
+                        >
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </nav>
+                </div>
+
+                <div className="px-6">
+                  <motion.a
+                    href={`tel:${companyInfo.phone}`}
+                    onClick={() =>
+                      trackEvent("phone_click", {
+                        location: "header_mobile_drawer",
+                        label: "Call Now — 24/7",
+                      })
+                    }
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.35 }}
+                    className="flex items-center justify-center gap-2.5 mt-6 w-full px-6 py-4 rounded-2xl font-black bg-gradient-to-r from-gold to-gold-light text-primary shadow-lg"
+                  >
+                    <Phone className="w-5 h-5" />
+                    Call Now — 24/7
+                  </motion.a>
+                </div>
               </div>
             </motion.div>
           </>

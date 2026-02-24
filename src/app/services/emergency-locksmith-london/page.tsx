@@ -1,6 +1,7 @@
 // src/app/services/emergency-locksmith-london/page.tsx
 
 import type { Metadata } from "next";
+import Header from "@/components/Header";
 import Link from "next/link";
 import { Phone, Shield, Clock, CheckCircle, ArrowRight } from "lucide-react";
 
@@ -55,7 +56,7 @@ export default function EmergencyLocksmithPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(emergencySchema) }}
       />
-
+      <Header />
       <main className="min-h-screen bg-white">
         {/* Hero */}
         <section className="bg-primary py-24 md:py-32 relative overflow-hidden">

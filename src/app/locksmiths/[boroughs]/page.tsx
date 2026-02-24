@@ -1,9 +1,12 @@
-// src/app/areas/[boroughs]/page.tsx
+// src/app/locksmiths/[borough]/page.tsx
 
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, ArrowRight, CheckCircle } from "lucide-react";
 import { BOROUGH_BY_SLUG, BOROUGHS, type Borough } from "../data";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { HYPERLOCAL_AREAS } from "@/data/hyperlocal";
 
 type Props = { params: Promise<{ boroughs: string }> };
 
@@ -16,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const b = BOROUGH_BY_SLUG[boroughs];
   if (!b) return {};
 
-  const baseUrl = "https://www.crownfieldlocksmiths.co.uk";
+  const baseUrl = "https://crownfieldlocksmiths.co.uk";
   const url = `${baseUrl}/locksmiths/${b.slug}`;
 
   return {
@@ -37,19 +40,26 @@ export default async function BoroughPage({ params }: Props) {
 
   if (!b) {
     return (
-      <main className="min-h-screen bg-white pt-24 pb-16">
-        <div className="max-w-3xl mx-auto px-4">
-          <h1 className="text-3xl font-black text-primary mb-3">
-            Area not found
-          </h1>
-          <p className="text-gray-600 mb-6">
-            Please choose a borough from our coverage list.
-          </p>
-          <Link className="text-primary font-bold underline" href="/locksmiths">
-            View areas we cover
-          </Link>
-        </div>
-      </main>
+      <>
+        <Header forceDark />
+        <main className="min-h-screen bg-white pt-24 pb-16">
+          <div className="max-w-3xl mx-auto px-4">
+            <h1 className="text-3xl font-black text-primary mb-3">
+              Area not found
+            </h1>
+            <p className="text-gray-600 mb-6">
+              Please choose a borough from our coverage list.
+            </p>
+            <Link
+              className="text-primary font-bold underline"
+              href="/locksmiths"
+            >
+              View areas we cover
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </>
     );
   }
 
@@ -62,11 +72,16 @@ export default async function BoroughPage({ params }: Props) {
       "@type": "Locksmith",
       name: "Crownfield Locksmiths",
       telephone: "+447346010278",
-      url: "https://www.crownfieldlocksmiths.co.uk",
+      url: "https://crownfieldlocksmiths.co.uk",
     },
     areaServed: { "@type": "AdministrativeArea", name: b.name },
     description: `24/7 emergency locksmith in ${b.name}. Lockouts, lock changes, UPVC repairs. Non-destructive entry where possible. Price confirmed before work starts.`,
   };
+
+  // Find hyperlocal areas within this borough
+  const hyperlocalAreas = HYPERLOCAL_AREAS.filter(
+    (a) => a.boroughSlug === boroughs,
+  );
 
   return (
     <>
@@ -74,6 +89,7 @@ export default async function BoroughPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(boroughSchema) }}
       />
+      <Header forceDark />
       <main className="min-h-screen bg-white">
         <section className="bg-primary py-20 pt-28">
           <div className="max-w-5xl mx-auto px-4">
@@ -160,6 +176,39 @@ export default async function BoroughPage({ params }: Props) {
           </div>
         </section>
 
+        {hyperlocalAreas.length > 0 && (
+          <section className="py-14 bg-white border-t border-gray-100">
+            <div className="max-w-5xl mx-auto px-4">
+              <p className="text-gold text-xs font-bold uppercase tracking-[0.22em] mb-3">
+                Specific Areas
+              </p>
+              <h2 className="text-2xl font-black text-primary mb-2">
+                Neighbourhoods in {b.name}
+              </h2>
+              <p className="text-gray-400 text-sm mb-8">
+                We cover these specific areas within {b.name} with dedicated
+                local pages.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                {hyperlocalAreas.map((area) => (
+                  <Link
+                    key={area.slug}
+                    href={`/locksmiths/${area.boroughSlug}/${area.slug}`}
+                    className="group px-4 py-3 rounded-xl bg-[#F8F7F4] border border-gray-100 hover:border-gold/40 hover:bg-white hover:shadow-sm transition-all"
+                  >
+                    <p className="font-semibold text-gray-700 group-hover:text-primary text-sm transition-colors">
+                      {area.name}
+                    </p>
+                    <p className="text-gray-400 text-xs mt-0.5">
+                      {area.postcode}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         <nav className="bg-[#F8F7F4] py-4 border-t border-gray-100">
           <div className="max-w-5xl mx-auto px-4">
             <ol
@@ -211,6 +260,7 @@ export default async function BoroughPage({ params }: Props) {
           </div>
         </nav>
       </main>
+      <Footer />
     </>
   );
 }

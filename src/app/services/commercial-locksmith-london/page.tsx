@@ -1,6 +1,7 @@
 // app/services/commercial-locksmith-london/page.tsx
 
 import type { Metadata } from "next";
+import Header from "@/components/Header";
 import Link from "next/link";
 import {
   Phone,
@@ -73,6 +74,7 @@ export default function CommercialLocksmithPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(commercialSchema) }}
       />
+      <Header />
       <main className="min-h-screen bg-white">
         <section className="bg-primary py-24 md:py-32 relative overflow-hidden">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(212,175,55,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />

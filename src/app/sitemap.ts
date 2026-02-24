@@ -1,5 +1,6 @@
 export const dynamic = "force-static";
 import { MetadataRoute } from "next";
+import { HYPERLOCAL_AREAS } from "@/data/hyperlocal";
 
 const baseUrl = "https://crownfieldlocksmiths.co.uk";
 const SITE_LASTMOD = "2026-02-24"; // update only when you actually change core site pages
@@ -115,6 +116,54 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
+      url: `${baseUrl}/blog/locked-out-london-what-to-do`,
+      lastModified: "2026-02-18",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/how-to-spot-rogue-locksmith-london`,
+      lastModified: "2026-02-20",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/key-snapped-in-lock`,
+      lastModified: "2026-02-22",
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/how-burglars-choose-targets-london`,
+      lastModified: "2026-02-16",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/moving-into-new-home-lock-security`,
+      lastModified: "2026-02-14",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/composite-vs-upvc-doors-security`,
+      lastModified: "2026-02-10",
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/smart-locks-honest-review-london`,
+      lastModified: "2026-02-24",
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: SITE_LASTMOD,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/privacy`,
       lastModified: SITE_LASTMOD,
       changeFrequency: "yearly",
@@ -127,5 +176,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.2,
     },
     ...boroughPages,
+    // Hyperlocal neighbourhood pages
+    ...HYPERLOCAL_AREAS.map((area) => ({
+      url: `${baseUrl}/locksmiths/${area.boroughSlug}/${area.slug}`,
+      lastModified: SITE_LASTMOD,
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
+    })),
   ];
 }

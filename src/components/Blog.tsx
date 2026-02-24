@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, ArrowRight, Clock } from "lucide-react";
 import { getAllBlogPosts, type BlogPost } from "@/data/blogPosts";
 
@@ -98,10 +99,13 @@ export default function Blog() {
             <Link href={`/blog/${featured.id}`} className="block h-full">
               <div className="relative rounded-3xl overflow-hidden bg-white border border-gray-100 h-full flex flex-col hover:border-primary/15 hover:shadow-xl transition-all duration-500">
                 {/* Image */}
-                <div className="relative h-64 md:h-80 overflow-hidden flex-shrink-0">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: `url(${featured.image})` }}
+                <div className="relative w-full aspect-[16/9] overflow-hidden flex-shrink-0">
+                  <Image
+                    src={featured.image}
+                    alt={featured.title}
+                    fill
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 60vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/10 to-transparent" />
 
@@ -161,11 +165,14 @@ export default function Blog() {
               >
                 <Link href={`/blog/${post.id}`} className="block h-full">
                   <div className="relative rounded-3xl overflow-hidden bg-white border border-gray-100 h-full flex hover:border-primary/15 hover:shadow-xl transition-all duration-500">
-                    {/* Image — left strip on md */}
+                    {/* Image — left strip */}
                     <div className="relative w-28 flex-shrink-0 overflow-hidden hidden sm:block">
-                      <div
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                        style={{ backgroundImage: `url(${post.image})` }}
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="112px"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent to-primary/10" />
                     </div>

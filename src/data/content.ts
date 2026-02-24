@@ -139,7 +139,7 @@ export const faqs = [
   {
     question: "What payment methods do you accept?",
     answer:
-      "Cash and major cards/contactless payments. You&apos;ll receive a clear receipt or invoice for all work completed.",
+      "Cash and major cards/contactless payments. You will receive a clear receipt or invoice for all work completed.",
   },
   {
     question: "Are you insured?",
