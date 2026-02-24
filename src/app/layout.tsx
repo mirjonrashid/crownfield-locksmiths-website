@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const SITE_URL = "https://www.crownfieldlocksmiths.co.uk";
+const SITE_URL = "https://crownfieldlocksmiths.co.uk";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
