@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Phone, MessageCircle, Shield, ArrowDown } from "lucide-react";
+import { companyInfo } from "@/data/company";
 
 function trackEvent(
   name: string,
@@ -22,6 +23,9 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+
+  const phoneHref = `tel:${companyInfo.phone}`;
+  const phoneDisplay = companyInfo.phoneDisplay ?? companyInfo.phone;
 
   return (
     <section
@@ -93,14 +97,16 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 mb-16"
           >
             <a
-              href="tel:+447346010278"
+              href={phoneHref}
               className="btn-telegram"
               onClick={() =>
                 trackEvent("phone_click", {
                   location: "hero",
                   label: "Call Now",
+                  phone: companyInfo.phone,
                 })
               }
+              aria-label={`Call ${phoneDisplay}`}
             >
               <Phone className="w-6 h-6" />
               <span>Call Now</span>

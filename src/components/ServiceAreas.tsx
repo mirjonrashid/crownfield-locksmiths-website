@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
 import { MapPin, Phone, Clock, Zap } from "lucide-react";
+import { companyInfo } from "@/data/company";
 
 const stats = [
   { value: "All", label: "Postcodes Covered", icon: MapPin },
@@ -58,6 +59,7 @@ export default function ServiceAreas() {
               Service Coverage
             </span>
           </motion.div>
+
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
             <motion.h2
               variants={item}
@@ -67,6 +69,7 @@ export default function ServiceAreas() {
               <br />
               <span className="text-gradient-gold">Every Postcode.</span>
             </motion.h2>
+
             <motion.p
               variants={item}
               className="text-gray-400 text-lg max-w-sm md:text-right leading-relaxed"
@@ -172,7 +175,7 @@ export default function ServiceAreas() {
               </div>
 
               <motion.a
-                href="tel:+447346010278"
+                href={`tel:${companyInfo.phone}`}
                 initial={{ opacity: 0, y: 12 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.58, ease: "easeOut" }}

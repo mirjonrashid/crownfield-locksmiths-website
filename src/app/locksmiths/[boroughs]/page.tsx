@@ -7,6 +7,7 @@ import { BOROUGH_BY_SLUG, BOROUGHS, type Borough } from "../data";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { HYPERLOCAL_AREAS } from "@/data/hyperlocal";
+import { companyInfo } from "@/data/company";
 
 type Props = { params: Promise<{ boroughs: string }> };
 
@@ -22,12 +23,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const baseUrl = "https://crownfieldlocksmiths.co.uk";
   const url = `${baseUrl}/locksmiths/${b.slug}`;
 
+  const title = `Locksmith ${b.name} | 24/7 Emergency | ${companyInfo.name}`;
+  const description = `Need a locksmith in ${b.name}? 24/7 emergency response, lockouts, lock changes and repairs. Call now: ${companyInfo.phoneDisplay}.`;
+
   return {
-    title: `Locksmith ${b.name} | 24/7 Emergency | Crownfield Locksmiths`,
-    description: `Need a locksmith in ${b.name}? 24/7 emergency response, lockouts, lock changes and repairs. Call now: 07346 010278.`,
+    title,
+    description,
     alternates: { canonical: url },
     openGraph: {
-      title: `Locksmith ${b.name} | 24/7 Emergency | Crownfield Locksmiths`,
+      title,
       description: `Fast locksmith service in ${b.name}. Non-destructive entry where possible. Upfront pricing confirmed before work starts.`,
       url,
     },
@@ -70,8 +74,8 @@ export default async function BoroughPage({ params }: Props) {
     serviceType: "Locksmith",
     provider: {
       "@type": "Locksmith",
-      name: "Crownfield Locksmiths",
-      telephone: "+447346010278",
+      name: companyInfo.name,
+      telephone: companyInfo.phone,
       url: "https://crownfieldlocksmiths.co.uk",
     },
     areaServed: { "@type": "AdministrativeArea", name: b.name },
@@ -106,14 +110,14 @@ export default async function BoroughPage({ params }: Props) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+447346010278"
+                href={`tel:${companyInfo.phone}`}
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-primary shadow-lg"
                 style={{
                   background: "linear-gradient(135deg,#d4af37,#e5c158)",
                 }}
               >
                 <Phone className="w-5 h-5" />
-                Call Now — 07346 010278
+                Call Now — {companyInfo.phoneDisplay}
               </a>
               <Link
                 href="/services/emergency-locksmith-london"

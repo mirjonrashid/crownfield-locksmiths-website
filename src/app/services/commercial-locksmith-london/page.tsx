@@ -11,37 +11,21 @@ import {
   CheckCircle,
   ArrowRight,
 } from "lucide-react";
+import { companyInfo } from "@/data/company";
 
 export const metadata: Metadata = {
   title: "Commercial Locksmith London | Master Keys, Access Control & Security",
-  description:
-    "Commercial locksmith services across London. Master key systems, access control, office lock upgrades and emergency business entry. Call Crownfield Locksmiths 24/7.",
+  description: `Commercial locksmith services across London. Master key systems, access control, office lock upgrades and emergency business entry. Call ${companyInfo.name} 24/7 on ${companyInfo.phoneDisplay}.`,
   alternates: {
     canonical:
-      "https://www.crownfieldlocksmiths.co.uk/services/commercial-locksmith-london",
+      "https://crownfieldlocksmiths.co.uk/services/commercial-locksmith-london",
   },
   openGraph: {
     title: "Commercial Locksmith London | Crownfield Locksmiths",
     description:
       "Master key systems, access control, commercial lock upgrades and emergency business entry across London.",
-    url: "https://www.crownfieldlocksmiths.co.uk/services/commercial-locksmith-london",
+    url: "https://crownfieldlocksmiths.co.uk/services/commercial-locksmith-london",
   },
-};
-
-const commercialSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Commercial Locksmith London",
-  serviceType: "Commercial Locksmith",
-  provider: {
-    "@type": "Locksmith",
-    name: "Crownfield Locksmiths",
-    telephone: "+447346010278",
-    url: "https://www.crownfieldlocksmiths.co.uk",
-  },
-  areaServed: { "@type": "City", name: "London" },
-  description:
-    "Professional commercial locksmith services for London businesses. Master key systems, access control installation, commercial lock upgrades, and 24/7 emergency business entry.",
 };
 
 const services = [
@@ -68,6 +52,22 @@ const services = [
 ];
 
 export default function CommercialLocksmithPage() {
+  const commercialSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Commercial Locksmith London",
+    serviceType: "Commercial Locksmith",
+    provider: {
+      "@type": "Locksmith",
+      name: companyInfo.name,
+      telephone: companyInfo.phone,
+      url: "https://crownfieldlocksmiths.co.uk",
+    },
+    areaServed: { "@type": "City", name: "London" },
+    description:
+      "Professional commercial locksmith services for London businesses. Master key systems, access control installation, commercial lock upgrades, and 24/7 emergency business entry.",
+  };
+
   return (
     <>
       <script
@@ -104,14 +104,15 @@ export default function CommercialLocksmithPage() {
                 and 24/7 emergency business entry across London.
               </p>
               <a
-                href="tel:+447346010278"
+                href={`tel:${companyInfo.phone}`}
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-primary shadow-lg"
                 style={{
                   background: "linear-gradient(135deg,#d4af37,#e5c158)",
                 }}
+                aria-label={`Call ${companyInfo.name} on ${companyInfo.phoneDisplay}`}
               >
                 <Phone className="w-5 h-5" />
-                Call Now — 07346 010278
+                Call Now — {companyInfo.phoneDisplay}
               </a>
             </div>
           </div>
@@ -166,12 +167,13 @@ export default function CommercialLocksmithPage() {
               </p>
             </div>
             <a
-              href="tel:+447346010278"
+              href={`tel:${companyInfo.phone}`}
               className="flex-shrink-0 inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-primary"
               style={{ background: "linear-gradient(135deg,#d4af37,#e5c158)" }}
+              aria-label={`Call ${companyInfo.name} on ${companyInfo.phoneDisplay}`}
             >
               <Phone className="w-5 h-5" />
-              07346 010278
+              {companyInfo.phoneDisplay}
             </a>
           </div>
         </section>

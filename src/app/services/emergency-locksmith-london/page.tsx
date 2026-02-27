@@ -4,52 +4,51 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Link from "next/link";
 import { Phone, Shield, Clock, CheckCircle, ArrowRight } from "lucide-react";
+import { companyInfo } from "@/data/company";
+import { BOROUGHS } from "@/app/locksmiths/data";
 
 export const metadata: Metadata = {
   title: "Emergency Locksmith London | 24/7 Fast Response",
-  description:
-    "Locked out in London? Crownfield Locksmiths dispatch immediately across all 32 boroughs. Non-destructive entry, upfront pricing. Call now: 07346 010278.",
+  description: `Locked out in London? ${companyInfo.name} dispatch immediately across all 32 boroughs. Non-destructive entry, upfront pricing. Call now: ${companyInfo.phoneDisplay}.`,
   alternates: {
     canonical:
-      "https://www.crownfieldlocksmiths.co.uk/services/emergency-locksmith-london",
+      "https://crownfieldlocksmiths.co.uk/services/emergency-locksmith-london",
   },
   openGraph: {
     title: "Emergency Locksmith London | 24/7 | Crownfield Locksmiths",
     description:
       "Locked out in London? We arrive fast across all 32 boroughs. Non-destructive entry. Upfront price before we start.",
-    url: "https://www.crownfieldlocksmiths.co.uk/services/emergency-locksmith-london",
+    url: "https://crownfieldlocksmiths.co.uk/services/emergency-locksmith-london",
   },
 };
-
-const emergencySchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Emergency Locksmith London",
-  serviceType: "Emergency Lockout",
-  provider: {
-    "@type": "Locksmith",
-    name: "Crownfield Locksmiths",
-    telephone: "+447346010278",
-    url: "https://www.crownfieldlocksmiths.co.uk",
-  },
-  areaServed: { "@type": "City", name: "London" },
-  description:
-    "24/7 emergency locksmith in London. We respond immediately to lockouts across all 32 boroughs. Non-destructive entry where possible. Upfront pricing confirmed before work begins.",
-  offers: {
-    "@type": "Offer",
-    priceSpecification: {
-      "@type": "PriceSpecification",
-      priceCurrency: "GBP",
-      description: "Fixed call-out fee confirmed before work begins",
-    },
-    availability: "https://schema.org/InStock",
-    availabilityStarts: "00:00",
-  },
-};
-
-import { BOROUGHS } from "@/app/locksmiths/data";
 
 export default function EmergencyLocksmithPage() {
+  const emergencySchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Emergency Locksmith London",
+    serviceType: "Emergency Lockout",
+    provider: {
+      "@type": "Locksmith",
+      name: companyInfo.name,
+      telephone: companyInfo.phone,
+      url: "https://crownfieldlocksmiths.co.uk",
+    },
+    areaServed: { "@type": "City", name: "London" },
+    description:
+      "24/7 emergency locksmith in London. We respond immediately to lockouts across all 32 boroughs. Non-destructive entry where possible. Upfront pricing confirmed before work begins.",
+    offers: {
+      "@type": "Offer",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "GBP",
+        description: "Fixed call-out fee confirmed before work begins",
+      },
+      availability: "https://schema.org/InStock",
+      availabilityStarts: "00:00",
+    },
+  };
+
   return (
     <>
       <script
@@ -89,14 +88,15 @@ export default function EmergencyLocksmithPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="tel:+447346010278"
+                  href={`tel:${companyInfo.phone}`}
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-primary shadow-lg"
                   style={{
                     background: "linear-gradient(135deg,#d4af37,#e5c158)",
                   }}
+                  aria-label={`Call ${companyInfo.name} on ${companyInfo.phoneDisplay}`}
                 >
                   <Phone className="w-5 h-5" />
-                  Call Now — 07346 010278
+                  Call Now — {companyInfo.phoneDisplay}
                 </a>
                 <Link
                   href="/#contact"
@@ -124,13 +124,12 @@ export default function EmergencyLocksmithPage() {
                 </h2>
                 <p className="text-gray-600 text-lg leading-relaxed mb-6">
                   Whether you&apos;re locked out of your home, flat, or office
-                  at 2am or 2pm, Crownfield Locksmiths arrives quickly and gets
-                  you back in without unnecessary damage.
+                  at 2am or 2pm, {companyInfo.name} arrives quickly and gets you
+                  back in without unnecessary damage.
                 </p>
                 <p className="text-gray-600 text-lg leading-relaxed mb-8">
                   We always attempt non-destructive entry first. You receive a
-                  fixed quote before any work begins. No surprises on the
-                  invoice.
+                  quote before any work begins. No surprises on the invoice.
                 </p>
                 <ul className="space-y-4">
                   {[
@@ -239,12 +238,13 @@ export default function EmergencyLocksmithPage() {
               under 30 minutes.
             </p>
             <a
-              href="tel:+447346010278"
+              href={`tel:${companyInfo.phone}`}
               className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-black text-primary text-lg shadow-lg"
               style={{ background: "linear-gradient(135deg,#d4af37,#e5c158)" }}
+              aria-label={`Call ${companyInfo.name} on ${companyInfo.phoneDisplay}`}
             >
               <Phone className="w-6 h-6" />
-              07346 010278
+              {companyInfo.phoneDisplay}
             </a>
           </div>
         </section>

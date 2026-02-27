@@ -288,11 +288,12 @@ export default function AboutPage() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
-                  href="tel:+447346010278"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl font-bold text-white border border-white/20 hover:border-gold/40 transition-colors text-sm"
+                  href="tel:+442030518388"
+                  className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl font-black text-white border border-white/25 hover:border-gold/60 hover:bg-white/5 transition-all text-sm"
+                  aria-label="Call Crownfield Locksmiths on 020 3051 8388"
                 >
-                  <Phone className="w-4 h-4" />
-                  Call Now
+                  <Phone className="w-4 h-4 text-gold group-hover:text-gold" />
+                  <span>020 3051 8388</span>
                 </a>
               </div>
             </div>
@@ -320,14 +321,14 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="tel:+447346010278"
+                href="tel:+442030518388"
                 className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl font-black text-primary shadow-lg"
                 style={{
                   background: "linear-gradient(135deg,#d4af37,#e5c158)",
                 }}
               >
                 <Phone className="w-5 h-5" />
-                Call +44 7346 010278
+                Call 020 3051 8388
               </a>
               <Link
                 href="/#contact"

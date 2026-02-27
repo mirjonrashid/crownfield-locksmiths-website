@@ -141,11 +141,15 @@ export default async function BlogPostPage({ params }: Props) {
                     </p>
                   </div>
                   <a
-                    href="tel:+447346010278"
-                    className="btn-telegram whitespace-nowrap"
+                    href="tel:+442030518388"
+                    className="inline-flex items-center gap-2.5 px-7 py-4 rounded-2xl font-black text-primary shadow-lg whitespace-nowrap"
+                    style={{
+                      background: "linear-gradient(135deg,#d4af37,#e5c158)",
+                    }}
+                    aria-label="Call Crownfield Locksmiths on 020 3051 8388"
                   >
                     <Phone className="w-5 h-5" />
-                    <span>Call Now</span>
+                    Call 020 3051 8388
                   </a>
                 </div>
               </div>

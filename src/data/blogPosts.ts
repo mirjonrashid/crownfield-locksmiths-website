@@ -1,3 +1,8 @@
+// ============================================
+// FILE LOCATION: src/data/blogPosts.ts
+// PURPOSE: Blog post data + helpers
+// ============================================
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -13,6 +18,35 @@ export interface BlogPost {
     metaDescription: string;
     keywords: string[];
   };
+}
+
+const PHONE_DISPLAY = "020 3051 8388";
+const PHONE_TEL = "+442030518388";
+const OLD_PHONE = "+447346010278";
+
+/**
+ * Replaces any legacy phone numbers inside markdown content and turns
+ * "Call: 020 3051 8388" into a clickable tel link.
+ */
+function withUpdatedPhone(post: BlogPost): BlogPost {
+  const updated = post.content.replaceAll(OLD_PHONE, PHONE_DISPLAY);
+
+  // Make common "Call:" lines clickable, without changing the wording everywhere.
+  const linked = updated
+    .replaceAll(
+      `Call: ${PHONE_DISPLAY}`,
+      `Call: [${PHONE_DISPLAY}](tel:${PHONE_TEL})`,
+    )
+    .replaceAll(
+      `Call ${PHONE_DISPLAY}`,
+      `Call [${PHONE_DISPLAY}](tel:${PHONE_TEL})`,
+    )
+    .replaceAll(
+      `Call: [${PHONE_DISPLAY}](tel:${PHONE_TEL})`,
+      `Call: [${PHONE_DISPLAY}](tel:${PHONE_TEL})`,
+    );
+
+  return { ...post, content: linked };
 }
 
 export const blogPosts: BlogPost[] = [
@@ -123,7 +157,7 @@ Quick reference:
 
 People upgrade the lock but ignore door alignment, a weak frame, worn hinges, and a cylinder that sticks out too far. Security is about the whole system.
 
-**Not sure what you have? Call: +447346010278**
+**Not sure what you have? Call: ${PHONE_DISPLAY}**
     `,
     seo: {
       metaTitle: "UK Lock Types Explained | Mortice, Yale, Euro Cylinder Guide",
@@ -215,7 +249,7 @@ A premium lock fitted badly is weaker than an average lock fitted properly.
 
 A proper security check covers door alignment, strike plates, frame strength, hinge play, and cylinder projection.
 
-**Need help choosing? Call: +447346010278**
+**Need help choosing? Call: ${PHONE_DISPLAY}**
     `,
     seo: {
       metaTitle: "Best Front Door Locks in London (2026 Guide)",
@@ -275,7 +309,7 @@ Assessors can check and photograph your locks during a claim investigation. If y
 
 Insurance-compliant locks are not just a formality — they're the condition under which your policy pays out.
 
-**Need compliant locks fitted? Call: +447346010278**
+**Need compliant locks fitted? Call: ${PHONE_DISPLAY}**
     `,
     seo: {
       metaTitle: "Home Insurance Lock Requirements | BS 3621 Explained",
@@ -350,7 +384,7 @@ Lubrication works only if done correctly:
 - Door won't close at all
 - You've forced it and made things worse
 
-**Need urgent help? Call: +447346010278**
+**Need urgent help? Call: ${PHONE_DISPLAY}**
     `,
     seo: {
       metaTitle: "Why UPVC Locks Fail in Winter | Cold Weather Lock Problems",
@@ -418,7 +452,7 @@ A visible alarm box, camera, or security signage signals that your property is m
 
 Security isn't about making your home impenetrable. It's about making it not worth the effort compared to the next property.
 
-**Want a quick security assessment? Call: +447346010278**
+**Want a quick security assessment? Call: ${PHONE_DISPLAY}**
     `,
     seo: {
       metaTitle: "Simple Home Security Upgrades That Reduce Break-In Risk",
@@ -433,9 +467,8 @@ Security isn't about making your home impenetrable. It's about making it not wor
       ],
     },
   },
-  // NEW BLOG POSTS — append these to the blogPosts array in src/data/blogPosts.ts
-  // Add these entries inside the blogPosts array, after the last existing post
-  // ── 6. Locked out guide (neutral + practical) ─────────────────────────────
+
+  // ── 6. Locked out guide ──────────────────────────────────────────────────
   {
     id: "locked-out-london-what-to-do",
     title: "Locked Out in London? A Calm Step-by-Step Plan",
@@ -514,7 +547,7 @@ Do a quick prevention checklist:
 - If your cylinder is stiff, consider servicing or replacing it  
 - If the door needs “lifting” to lock, the alignment likely needs adjustment (common on UPVC)
 
-**Need urgent help? Call: +447346010278**
+**Need urgent help? Call: ${PHONE_DISPLAY}**
     `,
     seo: {
       metaTitle: "Locked Out in London? What to Do (Step-by-Step Guide)",
@@ -530,7 +563,7 @@ Do a quick prevention checklist:
     },
   },
 
-  // ── 7. Choosing a locksmith (no “scammer” language, legally safer) ───────
+  // ── 7. Choosing a locksmith ──────────────────────────────────────────────
   {
     id: "how-to-choose-a-locksmith-london",
     title: "How to Choose a Locksmith in London (Without Stress)",
@@ -599,7 +632,7 @@ A receipt/invoice is normal business practice and protects both sides.
 
 In London, you can usually find a reputable locksmith quickly — even out of hours — if you use a simple checklist before confirming.
 
-**Need help now? Call: +447346010278**
+**Need help now? Call: ${PHONE_DISPLAY}**
     `,
     seo: {
       metaTitle: "How to Choose a Locksmith in London | Simple Checklist",
@@ -615,7 +648,7 @@ In London, you can usually find a reputable locksmith quickly — even out of ho
     },
   },
 
-  // ── 8. Snapped key (no fixed success rates, safer language) ──────────────
+  // ── 8. Snapped key ───────────────────────────────────────────────────────
   {
     id: "key-snapped-in-lock",
     title: "Key Snapped in the Lock? What to Do Next",
@@ -680,7 +713,7 @@ Avoid:
 
 Sometimes the most cost-effective solution is simply replacing the cylinder with a new set of keys.
 
-**Need help? Call: +447346010278**
+**Need help? Call: ${PHONE_DISPLAY}**
     `,
     seo: {
       metaTitle: "Key Snapped in Lock? Safe Steps & When to Call a Locksmith",
@@ -696,7 +729,7 @@ Sometimes the most cost-effective solution is simply replacing the cylinder with
     },
   },
 
-  // ── 9. Burglary deterrence (keep, but tighten claims) ────────────────────
+  // ── 9. Burglary deterrence ───────────────────────────────────────────────
   {
     id: "how-burglars-choose-targets-london",
     title: "What Makes a Home Look Like an Easy Target (And How to Fix It)",
@@ -747,7 +780,7 @@ You don’t need a “fortress”. You need:
 - better visibility
 - fewer signals of absence
 
-**Want a quick security assessment? Call: +447346010278**
+**Want a quick security assessment? Call: ${PHONE_DISPLAY}**
     `,
     seo: {
       metaTitle: "How to Make Your Home Less of an Easy Target | London Guide",
@@ -763,7 +796,7 @@ You don’t need a “fortress”. You need:
     },
   },
 
-  // ── 10. Move-in locks (neutral: no legal claims, practical) ──────────────
+  // ── 10. Move-in locks ────────────────────────────────────────────────────
   {
     id: "moving-into-new-home-lock-security",
     title: "Moving Into a New Home? Do This on Day One",
@@ -817,7 +850,7 @@ If you need to lift/push to lock, the multi-point may not be engaging cleanly. F
 - ensure strike plates/keeps are solid
 - confirm window locks on accessible windows
 
-**Moving in soon? Call: +447346010278**
+**Moving in soon? Call: ${PHONE_DISPLAY}**
     `,
     seo: {
       metaTitle: "Moving Into a New Home? Day One Security Checklist (London)",
@@ -833,7 +866,7 @@ If you need to lift/push to lock, the multi-point may not be engaging cleanly. F
     },
   },
 
-  // ── 11. Composite vs UPVC (keep, but make images local + tighter) ─────────
+  // ── 11. Composite vs UPVC ────────────────────────────────────────────────
   {
     id: "composite-vs-upvc-doors-security",
     title: "Composite vs UPVC Doors: What Actually Matters for Security",
@@ -881,7 +914,7 @@ A higher-security cylinder (anti-snap, anti-drill, anti-pick) combined with good
 - reputable installation
 - cylinder that sits close to flush (minimal projection)
 
-**Questions about your current door setup? Call: +447346010278**
+**Questions about your current door setup? Call: ${PHONE_DISPLAY}**
     `,
     seo: {
       metaTitle: "Composite vs UPVC Door Security | What Matters Most (UK)",
@@ -897,7 +930,7 @@ A higher-security cylinder (anti-snap, anti-drill, anti-pick) combined with good
     },
   },
 
-  // ── 12. Smart locks (neutral, no marketing claims, no insurer promises) ───
+  // ── 12. Smart locks ──────────────────────────────────────────────────────
   {
     id: "smart-locks-honest-review-london",
     title: "Smart Locks in London: Convenience vs Practical Security",
@@ -941,7 +974,7 @@ If you want smart convenience, keep the underlying mechanical security strong:
 
 Smart locks can be a great **layer** — but they shouldn’t be used to compensate for a weak door setup.
 
-**Want advice for your specific door type? Call: +447346010278**
+**Want advice for your specific door type? Call: ${PHONE_DISPLAY}**
     `,
     seo: {
       metaTitle: "Smart Locks in London | Practical Pros, Cons & What to Check",
@@ -959,9 +992,10 @@ Smart locks can be a great **layer** — but they shouldn’t be used to compens
 ];
 
 export function getBlogPost(id: string): BlogPost | undefined {
-  return blogPosts.find((post) => post.id === id);
+  const post = blogPosts.find((p) => p.id === id);
+  return post ? withUpdatedPhone(post) : undefined;
 }
 
 export function getAllBlogPosts(): BlogPost[] {
-  return blogPosts;
+  return blogPosts.map(withUpdatedPhone);
 }

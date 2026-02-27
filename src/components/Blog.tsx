@@ -4,8 +4,9 @@ import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, ArrowRight, Clock } from "lucide-react";
+import { Calendar, ArrowRight, Clock, Phone } from "lucide-react";
 import { getAllBlogPosts, type BlogPost } from "@/data/blogPosts";
+import { companyInfo } from "@/data/company";
 
 const container: Variants = {
   hidden: {},
@@ -29,6 +30,9 @@ export default function Blog() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
   const posts = getAllBlogPosts().slice(0, 3);
   const [featured, ...rest] = posts;
+
+  // Safe fallback if posts array is empty for any reason
+  if (!featured) return null;
 
   return (
     <section
@@ -75,7 +79,20 @@ export default function Blog() {
               <br />
               <span className="text-gradient-gold">&amp; Advice.</span>
             </motion.h2>
+
+            {/* Optional mini CTA (uses phone from company.ts) */}
+            <motion.div variants={item} className="mt-6 flex flex-wrap gap-3">
+              <a
+                href={`tel:${companyInfo.phone}`}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-white border border-gray-200 text-primary font-semibold text-sm hover:border-primary/30 hover:shadow-md transition-all"
+                aria-label={`Call ${companyInfo.name} on ${companyInfo.phoneDisplay}`}
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call {companyInfo.phoneDisplay}</span>
+              </a>
+            </motion.div>
           </div>
+
           <motion.div variants={item}>
             <Link
               href="/blog"
@@ -112,7 +129,10 @@ export default function Blog() {
                   {/* Category */}
                   <div className="absolute top-4 left-4">
                     <span
-                      className={`px-3 py-1.5 rounded-full text-xs font-bold ${categoryColors[featured.category] ?? "bg-gold/15 text-primary"}`}
+                      className={`px-3 py-1.5 rounded-full text-xs font-bold ${
+                        categoryColors[featured.category] ??
+                        "bg-gold/15 text-primary"
+                      }`}
                     >
                       {featured.category}
                     </span>
@@ -181,7 +201,10 @@ export default function Blog() {
                     <div className="p-6 flex flex-col flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-3">
                         <span
-                          className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${categoryColors[post.category] ?? "bg-gold/15 text-primary"}`}
+                          className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${
+                            categoryColors[post.category] ??
+                            "bg-gold/15 text-primary"
+                          }`}
                         >
                           {post.category}
                         </span>

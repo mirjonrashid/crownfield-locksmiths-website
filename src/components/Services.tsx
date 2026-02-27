@@ -13,6 +13,7 @@ import {
   Search,
   ArrowUpRight,
 } from "lucide-react";
+import { companyInfo } from "@/data/company";
 
 const services = [
   {
@@ -128,6 +129,7 @@ export default function Services() {
               What We Do
             </span>
           </motion.div>
+
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
             <motion.h2
               variants={item}
@@ -137,6 +139,7 @@ export default function Services() {
               <br />
               <span className="text-gradient-gold">Solved.</span>
             </motion.h2>
+
             <motion.p
               variants={item}
               className="text-gray-400 text-base md:text-lg max-w-xs md:text-right leading-relaxed"
@@ -261,6 +264,7 @@ export default function Services() {
                           : "text-primary/50 hover:text-primary"
                       }`}
                     >
+                      <span>Learn more</span>
                       <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                     </Link>
                   )}
@@ -285,8 +289,9 @@ export default function Services() {
               Call us and we&apos;ll advise honestly — no pressure.
             </p>
           </div>
+
           <a
-            href="tel:+447346010278"
+            href={`tel:${companyInfo.phone}`}
             className="flex-shrink-0 flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-primary text-white font-bold text-sm hover:bg-primary-dark transition-colors shadow-md"
           >
             <Phone className="w-4 h-4" />

@@ -11,7 +11,7 @@ import {
   CheckCircle2,
   AlertCircle,
 } from "lucide-react";
-import { companyInfo } from "@/data/content";
+import { companyInfo } from "@/data/company";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -51,9 +51,10 @@ export default function ContactForm() {
           postcode: formData.postcode,
           service: formData.service,
           message: formData.message,
-          to_email: "info@crownfieldlocksmiths.co.uk",
+          to_email: companyInfo.email,
         }),
       });
+
       const result = await response.json();
       if (result.success) {
         setSubmitStatus("success");
@@ -67,7 +68,9 @@ export default function ContactForm() {
           });
           setSubmitStatus("idle");
         }, 3000);
-      } else throw new Error("Failed");
+      } else {
+        throw new Error("Failed");
+      }
     } catch {
       setSubmitStatus("error");
     } finally {
@@ -80,7 +83,7 @@ export default function ContactForm() {
       href: `tel:${companyInfo.phone}`,
       icon: Phone,
       label: "Emergency Line",
-      value: companyInfo.phone,
+      value: companyInfo.phoneDisplay ?? companyInfo.phone,
       sub: "Available 24/7",
       dark: true,
     },
@@ -153,6 +156,7 @@ export default function ContactForm() {
           >
             {contactCards.map((card, i) => {
               const Icon = card.icon;
+
               const Inner = (
                 <motion.div
                   key={card.label}
@@ -173,23 +177,34 @@ export default function ContactForm() {
                     }`}
                   >
                     <Icon
-                      className={`w-5 h-5 ${card.dark ? "text-white" : "text-primary"}`}
+                      className={`w-5 h-5 ${
+                        card.dark ? "text-white" : "text-primary"
+                      }`}
                     />
                   </div>
+
                   <div className="min-w-0">
                     <p
-                      className={`text-xs font-semibold mb-0.5 ${card.dark ? "text-white/60" : "text-gray-400"}`}
+                      className={`text-xs font-semibold mb-0.5 ${
+                        card.dark ? "text-white/60" : "text-gray-400"
+                      }`}
                     >
                       {card.label}
                     </p>
+
                     <p
-                      className={`font-bold text-sm truncate ${card.dark ? "text-white" : "text-primary"}`}
+                      className={`font-bold text-sm truncate ${
+                        card.dark ? "text-white" : "text-primary"
+                      }`}
                     >
                       {card.value}
                     </p>
+
                     {card.sub && (
                       <p
-                        className={`text-xs mt-0.5 ${card.dark ? "text-white/50" : "text-gray-400"}`}
+                        className={`text-xs mt-0.5 ${
+                          card.dark ? "text-white/50" : "text-gray-400"
+                        }`}
                       >
                         {card.sub}
                       </p>
@@ -197,6 +212,7 @@ export default function ContactForm() {
                   </div>
                 </motion.div>
               );
+
               return card.href ? (
                 <a key={card.label} href={card.href}>
                   {Inner}
@@ -361,6 +377,7 @@ export default function ContactForm() {
                     ✓ We&apos;ll be in touch shortly.
                   </motion.div>
                 )}
+
                 {submitStatus === "error" && (
                   <motion.div
                     initial={{ opacity: 0, y: -8 }}
@@ -368,7 +385,14 @@ export default function ContactForm() {
                     exit={{ opacity: 0 }}
                     className="mt-4 p-4 rounded-xl bg-red-50 border border-red-200 text-center text-red-800 font-medium text-sm"
                   >
-                    Please call {companyInfo.phone} directly.
+                    Please call{" "}
+                    <a
+                      className="font-bold underline"
+                      href={`tel:${companyInfo.phone}`}
+                    >
+                      {companyInfo.phoneDisplay ?? companyInfo.phone}
+                    </a>{" "}
+                    directly.
                   </motion.div>
                 )}
               </AnimatePresence>
